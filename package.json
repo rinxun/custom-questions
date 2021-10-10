@@ -25,7 +25,9 @@
   },
   "homepage": "https://rinxun.github.io/custom-questions/",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://www.npmjs.com/package/@rinxun/custom-questions",
+    "tag": "1.0.0-rc3"
   },
   "devDependencies": {
     "@types/react": "^17.0.27",
