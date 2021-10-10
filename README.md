@@ -35,20 +35,20 @@ function CustomQuestionDemo() {
   const [textValue, setTextValue] = useState('');
   
   return (
-    <AnswerGroup
-			answerType={Enums.AnswerTypeEnum.shortText}
-			question="What's your name?"
-			answer={
-        {
-          name: 'demo',
-          value: textValue,
-          onChange: (val: string) => {
-            setTextValue(val);
-          },
-          viewType: Enums.ViewTypeEnum.preview 
-        } as TextAnswerProps
-			}
-		/>
+      <AnswerGroup
+        answerType={Enums.AnswerTypeEnum.shortText}
+        question="What's your name?"
+        answer={
+          {
+            name: 'demo',
+            value: textValue,
+            onChange: (val: string) => {
+              setTextValue(val);
+            },
+            viewType: Enums.ViewTypeEnum.preview
+          } as TextAnswerProps
+        }
+      />
   )
 }
 ```
@@ -191,14 +191,15 @@ import { QuestionGroup } from '@rinxun/custom-questions';
 
 <h5>Props</h5>
 
-| Name       | Type   | Default | Required | Description                                             |
-| ---------- | ------ | ------- | -------- | ------------------------------------------------------- |
-| answerType |        |         |          |                                                         |
-|            |        |         |          |                                                         |
-|            |        |         |          |                                                         |
-| question   | string |         | true     | It is a value for user to define a question description |
-|            |        |         |          |                                                         |
-|            |        |         |          |                                                         |
+| Name             | Type                    | Default          | Required | Description                                                  |
+| ---------------- | ----------------------- | ---------------- | -------- | ------------------------------------------------------------ |
+| answerType       | AnswerTypeSelectorProps |                  | true     | See props of `AnswerType` .                                  |
+| choices          | EditChoiceItemsProps    |                  | true     | See props of `EditChoiceItems`.                              |
+| onChangeQuestion | func                    |                  | true     | **Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
+| question         | string                  |                  | true     | The value of the Question `Input` element.                   |
+| questionLabel    | string                  | 'Enter Question' | false    | The label of the Question `Input` element.                   |
+| scoring          | ScoringProps            |                  | false    | See props of `Scoring`. Required if `showScoring` is `true`. |
+| showScoring      | boolean                 | false            | false    | If `true`, the `Scoring` will be rendered.                   |
 
 
 
