@@ -1,6 +1,6 @@
 {
   "name": "@rinxun/custom-questions",
-  "version": "1.0.0",
+  "version": "1.0.0-rc1",
   "description": "It can help you to build some React custom question components for editing and answering",
   "keywords": [
     "react",
@@ -24,6 +24,9 @@
     "email": "hello@rinxun.com"
   },
   "homepage": "https://rinxun.github.io/custom-questions/",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
