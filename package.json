@@ -1,6 +1,6 @@
 {
   "name": "@rinxun/custom-questions",
-  "version": "1.0.0-rc1",
+  "version": "1.0.0-rc2",
   "description": "It can help you to build some React custom question components for editing and answering",
   "keywords": [
     "react",
@@ -9,7 +9,7 @@
     "customize",
     "material-ui"
   ],
-  "main": "/dist/index.js",
+  "main": "index.js",
   "type": "module",
   "types": "**/*.d.ts",
   "author": "Janden Ma",
@@ -43,8 +43,10 @@
     "build": "./node_modules/.bin/tsc"
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts",
+    "./**/*.js",
+    "./**/*.d.ts",
+    "components/**/*.js",
+    "components/**/*.d.ts",
     ".gitignore",
     "package.json",
     "README.md",
