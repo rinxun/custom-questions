@@ -9,6 +9,7 @@ import { LinkTypeEnum, ViewTypeEnum } from '../enums';
 export interface LinkAnswerProps {
   name?: string;
   value: string;
+  required?: boolean;
   maxLength?: number;
   minLength?: number;
   disabled?: boolean;
@@ -22,6 +23,7 @@ function LinkAnswer(props: LinkAnswerProps) {
   const {
     name,
     value,
+    required,
     viewType,
     maxLength,
     minLength,
@@ -64,7 +66,9 @@ function LinkAnswer(props: LinkAnswerProps) {
             startAdornment: (
               <InputAdornment position="start">
                 <Select
+                  required={required}
                   size="small"
+                  variant="standard"
                   margin="dense"
                   name="linkType"
                   labelId="link-type-select-label"

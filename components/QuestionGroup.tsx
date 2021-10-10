@@ -4,9 +4,9 @@ import TextField from '@mui/material/TextField';
 import { AnswerTypeEnum, ViewTypeEnum, LinkTypeEnum } from '../enums';
 import Scoring, { ScoringProps } from './Scoring';
 import { EditChoiceItems, EditChoiceItemsProps } from './ChoiceAnswer';
-import TextAnswer, { TextAnswerProps } from './TextAnswer';
-import LinkAnswer, { LinkAnswerProps } from './LinkAnswer';
-import UploaderAnswer, { UploaderAnswerProps } from './UploaderAnswer';
+import TextAnswer from './TextAnswer';
+import LinkAnswer from './LinkAnswer';
+import UploaderAnswer from './UploaderAnswer';
 import AnswerTypeSelector, { AnswerTypeSelectorProps } from './AnswerTypeSelector';
 
 interface QuestionGroupProps {

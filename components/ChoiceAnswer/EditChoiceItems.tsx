@@ -43,6 +43,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
             <Grid item xs={12} md={10} lg={8} key={index}>
               <TextField
                 fullWidth
+                required
                 size="small"
                 margin="dense"
                 variant="outlined"

@@ -6,6 +6,7 @@ import { AnswerTypeEnum, ViewTypeEnum } from '../enums';
 export interface TextAnswerProps {
   name: string;
   value: string;
+  required?: boolean;
   maxLength?: number;
   minLength?: number;
   disabled?: boolean;
@@ -19,6 +20,7 @@ function TextAnswer(props: TextAnswerProps) {
   const {
     name,
     value,
+    required,
     maxLength,
     minLength,
     disabled,
@@ -32,6 +34,7 @@ function TextAnswer(props: TextAnswerProps) {
     <Grid container direction="row" justifyContent="flex-start" alignItems="center">
       <Grid item xs={12} md={10} lg={8}>
         <TextField
+          required={required}
           fullWidth
           size="small"
           margin="dense"

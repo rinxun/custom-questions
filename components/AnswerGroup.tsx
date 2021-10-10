@@ -48,7 +48,7 @@ function AnswerGroup(props: AnswerGroupProps) {
       default:
         return <></>;
     }
-  }, [answerType]);
+  }, [answerType, answer]);
 
   return (
     <>
