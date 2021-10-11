@@ -15,9 +15,6 @@ import UploaderAnswer, { UploaderAnswerProps } from './UploaderAnswer';
 interface AnswerGroupProps {
   question: string;
   answerType: AnswerTypeEnum;
-  totalScore?: number | string;
-  passScore?: number | string;
-  turnOffScoring?: boolean;
   answer:
     | LinkAnswerProps
     | TextAnswerProps
@@ -54,7 +51,9 @@ function AnswerGroup(props: AnswerGroupProps) {
     <>
       <Grid container direction="row" justifyContent="flex-start" alignItems="center">
         <Grid item xs={12}>
-          <Typography variant="body2">{question}</Typography>
+          <Typography variant="body2" align="left">
+            {question}
+          </Typography>
         </Grid>
       </Grid>
       {answerContent}

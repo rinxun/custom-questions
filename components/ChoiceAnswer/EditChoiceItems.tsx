@@ -12,7 +12,7 @@ export interface EditChoiceItemsProps {
   options: Array<{ value: string; name: string; label?: string }>;
   onChange: (name: string, value: string) => void;
   onAddMore: () => void;
-  onRemove: (id: string) => void;
+  onRemove: (name: string) => void;
   maxItems?: number;
   maxItemsTipText?: string;
 }
@@ -62,7 +62,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
                           color="secondary"
                           size="small"
                           onClick={() => {
-                            onRemove(value);
+                            onRemove(name);
                           }}
                         >
                           <CloseIcon fontSize="small" />

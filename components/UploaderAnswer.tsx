@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import Grid from '@mui/material/Grid';
-import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -18,22 +17,36 @@ export interface UploaderAnswerProps {
   onUpload: (files: Array<File>, index?: number) => void;
   onRemove: (id: string | number) => void;
   viewType: ViewTypeEnum;
+  maxSize?: number;
   warmingTips?: string;
+  wrongFileTypeErrText?: string;
+  sizeExceededErrText?: string;
+  dropFileText?: string;
+  chooseFileText?: string;
 }
 
 function UploaderAnswer(props: UploaderAnswerProps) {
-  const { files, onUpload, onRemove, viewType, warmingTips } = props;
+  const { files, onUpload, onRemove, viewType, warmingTips, maxSize, ...rest } = props;
 
   return (
     <>
       <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-        <Typography variant="caption" color="gray" align="left">
-          {warmingTips ??
-            'Documents can be uploaded in pdf, xls, doc & jpeg formats. Maximum size allowed is 5MB.'}
-        </Typography>
+        <Grid item xs={12}>
+          <Typography variant="caption" color="gray" align="left">
+            {warmingTips ??
+              `Documents can be uploaded in pdf, xls, doc & jpeg formats. Maximum size allowed is ${
+                maxSize ?? 5
+              } MB.`}
+          </Typography>
+        </Grid>
         {viewType !== ViewTypeEnum.edit && (
           <Grid item xs={12} md={10} lg={8}>
-            <FileUploader onUpload={onUpload} disabled={viewType !== ViewTypeEnum.answer} />
+            <FileUploader
+              onUpload={onUpload}
+              disabled={viewType !== ViewTypeEnum.answer}
+              maxSize={maxSize}
+              {...rest}
+            />
           </Grid>
         )}
       </Grid>
@@ -59,18 +72,16 @@ function UploaderAnswer(props: UploaderAnswerProps) {
                     </Typography>
                   </Grid>
                   <Grid item xs={1}>
-                    <Tooltip title="Remove">
-                      <IconButton
-                        size="small"
-                        color="secondary"
-                        onClick={(event) => {
-                          event.preventDefault();
-                          onRemove(fileKey ?? id);
-                        }}
-                      >
-                        <DeleteIcon fontSize="small" />
-                      </IconButton>
-                    </Tooltip>
+                    <IconButton
+                      size="small"
+                      color="secondary"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        onRemove(fileKey ?? id);
+                      }}
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
                   </Grid>
                 </Grid>
               );
