@@ -85,7 +85,7 @@ We prepared a [live and interactive demo](https://codesandbox.io/s/custom-questi
 
 <h2>Some Enumerations</h2>
 
-<h4>AnswerTypeEnum</h4>
+<h3>AnswerTypeEnum</h3>
 
 | Name         | Description                                                  |
 | ------------ | ------------------------------------------------------------ |
@@ -96,7 +96,7 @@ We prepared a [live and interactive demo](https://codesandbox.io/s/custom-questi
 | singleChoice | If you select it, we will render a radio group for you to pick. |
 | multiChoice  | If you select it, we will render a checkbox group for you to pick. |
 
-<h4>LinkTypeEnum</h4>
+<h3>LinkTypeEnum</h3>
 
 | Name   | Description                                                  |
 | ------ | ------------------------------------------------------------ |
@@ -106,7 +106,7 @@ We prepared a [live and interactive demo](https://codesandbox.io/s/custom-questi
 | ftp    | File Transfer Protocol, for transferring files between computers. |
 | sftp   | Secure File Transfer Protocol, for transferring large files over the web. |
 
-<h4>ViewTypeEnum</h4>
+<h3>ViewTypeEnum</h3>
 
 | Name    | Description                                        |
 | ------- | -------------------------------------------------- |
@@ -118,7 +118,7 @@ We prepared a [live and interactive demo](https://codesandbox.io/s/custom-questi
 
 <h2>Components</h2>
 
-<h4>AnswerTypeSelector</h4>
+<h3>AnswerTypeSelector</h3>
 
 You can use it to switch different answer types.
 
@@ -138,9 +138,9 @@ import { AnswerTypeSelector } from '@rinxun/custom-questions';
 
 
 
-<h4>LinkAnswer</h4>
+<h3>LinkAnswer</h3>
 
-It will help you to render a URL input component for answering..
+It will help you to render a URL input component for answering.
 
 <h5>Import</h5>
 
@@ -165,7 +165,7 @@ import { LinkAnswer } from '@rinxun/custom-questions';
 
 
 
-<h4>Scoring</h4>
+<h3>Scoring</h3>
 
 You can use it to define the total score and the pass score.
 
@@ -192,7 +192,7 @@ import { Scoring } from '@rinxun/custom-questions';
 
 
 
-<h4>TextAnswer</h4>
+<h3>TextAnswer</h3>
 
 It will help you to render a text input component for answering..
 
@@ -219,7 +219,7 @@ import { TextAnswer } from '@rinxun/custom-questions';
 
 
 
-<h4>UploaderAnswer</h4>
+<h3>UploaderAnswer</h3>
 
 It will help you to render a Uploader component for uploading files.
 
@@ -254,7 +254,7 @@ import { UploaderAnswer } from '@rinxun/custom-questions';
 
 
 
-<h4>EditChoiceItems</h4>
+<h3>EditChoiceItems</h3>
 
 You can use it to create/edit choices.
 
@@ -285,7 +285,7 @@ import { EditChoiceItems } from '@rinxun/custom-questions';
 
 
 
-<h4>SingleChoiseAnswer</h4>
+<h3>SingleChoiseAnswer</h3>
 
 It will help you to render a radio group component for answering.
 
@@ -307,7 +307,7 @@ import { SingleChoiseAnswer } from '@rinxun/custom-questions';
 
 
 
-<h4>MultiChoiseAnswer</h4>
+<h3>MultiChoiseAnswer</h3>
 
 It will help you to render a checkbox group component for answering.
 
@@ -329,7 +329,7 @@ import { MultiChoiseAnswer } from '@rinxun/custom-questions';
 
 
 
-<h4>QuestionGroup</h4>
+<h3>QuestionGroup</h3>
 
 You can use it to create/edit a question.
 
@@ -343,7 +343,7 @@ import { QuestionGroup } from '@rinxun/custom-questions';
 
 | Name             | Type                    | Default          | Required | Description                                                  |
 | ---------------- | ----------------------- | ---------------- | -------- | ------------------------------------------------------------ |
-| answerType       | AnswerTypeSelectorProps |                  | true     | See props of `AnswerType` .                                  |
+| answerType       | AnswerTypeSelectorProps |                  | true     | See props of `AnswerTypeSelector` .                          |
 | choices          | EditChoiceItemsProps    |                  | true     | See props of `EditChoiceItems`.                              |
 | onChangeQuestion | func                    |                  | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
 | question         | string                  |                  | true     | The value of the Question `Input` element.                   |
@@ -353,7 +353,7 @@ import { QuestionGroup } from '@rinxun/custom-questions';
 
 
 
-<h4>AnswerGroup</h4>
+<h3>AnswerGroup</h3>
 
 You can use it to render a component for answering.
 
@@ -365,11 +365,11 @@ import { AnswerGroup } from '@rinxun/custom-questions';
 
 <h5>Props</h5>
 
-| Name       | Type                                                         | Default | Required | Description                        |
-| ---------- | ------------------------------------------------------------ | ------- | -------- | ---------------------------------- |
-| answer     | LinkAnswerProps \| TextAnswerProps \| UploaderAnswerProps \| SingleChoiceAnswerProps \| MultiChoiceAnswerProps |         | true     | See the corresponding props above. |
-| answerType | AnswerTypeSelectorProps                                      |         | true     | See props of `AnswerType` .        |
-| question   | string                                                       |         | true     | The text to describe the question. |
+| Name       | Type                                                         | Default | Required | Description                                                |
+| ---------- | ------------------------------------------------------------ | ------- | -------- | ---------------------------------------------------------- |
+| answer     | LinkAnswerProps \| TextAnswerProps \| UploaderAnswerProps \| SingleChoiceAnswerProps \| MultiChoiceAnswerProps |         | true     | See the corresponding props above.                         |
+| answerType | AnswerTypeEnum                                               |         | true     | Which kind of component you want to render for the answer. |
+| question   | string                                                       |         | true     | The text to describe the question.                         |
 
 
 
