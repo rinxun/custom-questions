@@ -5,6 +5,30 @@
 
 ---
 
+<h2>Quick Guide</h2>
+
+- [Installation](#Installation)
+- [License](#License)
+- [Usage](#Usage)
+- [Some Enumerations](#Some Enumerations)
+  - [AnswerTypeEnum](#AnswerTypeEnum)
+  - [LinkTypeEnum](#LinkTypeEnum)
+  - [ViewTypeEnum](ViewTypeEnum)
+- [Components](#Components)
+  - [AnswerTypeSelector](#AnswerTypeSelector)
+  - [LinkAnswer](#LinkAnswer)
+  - [Scoring](#Scoring)
+  - [TextAnswer](#TextAnswer)
+  - [UploaderAnswer](#UploaderAnswer)
+  - [EditChoiceItems](#EditChoiceItems)
+  - [SingleChoiseAnswer](#SingleChoiseAnswer)
+  - [MultiChoiseAnswer](#MultiChoiseAnswer)
+  - [QuestionGroup](#QuestionGroup)
+  - [AnswerGroup](#AnswerGroup)
+- [Changelog](#Changelog)
+
+
+
 <h2>Installation </h2>
 
 `custom-questions` is available as an [npm package](https://www.npmjs.com/package/@rinxun/custom-questions).
