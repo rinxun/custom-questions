@@ -10,7 +10,7 @@
 - [Installation](#Installation)
 - [License](#License)
 - [Usage](#Usage)
-- [Some Enumerations](#Some Enumerations)
+- [Some Enumerations](#Some-Enumerations)
   - [AnswerTypeEnum](#AnswerTypeEnum)
   - [LinkTypeEnum](#LinkTypeEnum)
   - [ViewTypeEnum](ViewTypeEnum)
@@ -29,7 +29,7 @@
 
 
 
-<h2>Installation </h2>
+<h2>Installation</h2>
 
 `custom-questions` is available as an [npm package](https://www.npmjs.com/package/@rinxun/custom-questions).
 
