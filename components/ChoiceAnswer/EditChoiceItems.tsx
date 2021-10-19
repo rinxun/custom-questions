@@ -59,7 +59,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
                     options.length > 2 ? (
                       <InputAdornment position="end">
                         <IconButton
-                          color="secondary"
+                          color="error"
                           size="small"
                           onClick={() => {
                             onRemove(name);
@@ -84,7 +84,13 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
       >
         {maxItems && (
           <Grid item xs={12}>
-            <Typography variant="caption">
+            <Typography
+              variant="caption"
+              component="p"
+              align="left"
+              color="red"
+              sx={{ mb: theme.spacing(0.5) }}
+            >
               {maxItemsTipText || `A maximum of ${maxItems} choices can be set!`}
             </Typography>
           </Grid>

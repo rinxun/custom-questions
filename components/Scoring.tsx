@@ -76,7 +76,7 @@ function Scoring(props: ScoringProps) {
           maxValue={totalScore || undefined}
         />
       </Grid>
-      <Grid item xs={12} md={4} lg={3}>
+      <Grid item xs={12} md={4} lg={3} textAlign="left">
         <FormControlLabel
           label={turnOffScoringLabel || 'Turn off scoring'}
           control={

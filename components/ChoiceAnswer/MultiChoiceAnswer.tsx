@@ -19,7 +19,7 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
 
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-      <Grid item xs={12} md={10} lg={8}>
+      <Grid item xs={12} md={10} lg={8} textAlign="left">
         <FormControl component="fieldset" name={name}>
           <FormGroup>
             {options.map((opt) => (
