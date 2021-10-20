@@ -130,11 +130,12 @@ import { AnswerTypeSelector } from '@rinxun/custom-questions';
 
 <h5>Props</h5>
 
-| Name     | Type           | Default              | Required | Description                                                  |
-| -------- | -------------- | -------------------- | -------- | ------------------------------------------------------------ |
-| label    | string         | 'Select Answer Type' | false    | The label of the `Select` element.                           |
-| onChange | func           |                      | true     | Callback fired when the `Select` value is changed.<br />**Signature:**<br/>`function(value: AnswerTypeEnum) => void`<br/>*value:* The value of the `Select` element. |
-| value    | AnswerTypeEnum |                      | true     | The value of the `Select` element, required for a controlled component. |
+| Name          | Type                    | Default              | Required | Description                                                  |
+| ------------- | ----------------------- | -------------------- | -------- | ------------------------------------------------------------ |
+| label         | string                  | 'Select Answer Type' | false    | The label of the `Select` element.                           |
+| onChange      | func                    |                      | true     | Callback fired when the `Select` value is changed.<br />**Signature:**<br/>`function(value: AnswerTypeEnum) => void`<br/>*value:* The value of the `Select` element. |
+| value         | AnswerTypeEnum          |                      | true     | The value of the `Select` element, required for a controlled component. |
+| hiddenOptions | Array\<AnswerTypeEnum\> | []                   | false    | The options (answer types) you don't want to show in the options list of the selector. |
 
 
 

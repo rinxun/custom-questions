@@ -9,6 +9,7 @@ import { AnswerTypeEnum } from '../enums';
 export interface AnswerTypeSelectorProps {
   value: AnswerTypeEnum;
   label?: string;
+  hiddenOptions?: Array<AnswerTypeEnum>;
   onChange: (value: AnswerTypeEnum) => void;
 }
 
@@ -16,11 +17,15 @@ export interface AnswerTypeSelectorProps {
  * Component For answer type
  */
 function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
-  const { value, onChange, label } = props;
+  const { value, onChange, label, hiddenOptions = [] } = props;
   const options = useMemo(() => {
     const kvs: Array<string> = [];
     for (let type in AnswerTypeEnum) {
-      kvs.push(Object(AnswerTypeEnum)[type]);
+      const enumVal = Object(AnswerTypeEnum)[type];
+      // if user sets the hiddenOptions, we should only show those types not in the hiddenOptions
+      if (!hiddenOptions.includes(enumVal)) {
+        kvs.push(enumVal);
+      }
     }
     return kvs;
   }, []);
