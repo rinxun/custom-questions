@@ -267,22 +267,27 @@ import { EditChoiceItems } from '@rinxun/custom-questions';
 
 <h5>Choice Item Props</h5>
 
-| Name  | Type   | Default    | Required | Description                                                  |
-| ----- | ------ | ---------- | -------- | ------------------------------------------------------------ |
-| label | string | 'Choice x' | false    | The label of the `Input`.<br />`x` is an index number.       |
-| name  | string |            | true     | The name of the `Input`. <br />Also it is the unique id of the choice item. |
-| value | string |            | true     | The value of the `Input`.                                    |
+| Name          | Type   | Default    | Required | Description                                                  |
+| ------------- | ------ | ---------- | -------- | ------------------------------------------------------------ |
+| correctAnswer | bool   |            | false    | If `true` that means this answer is the correct one.<br />Required when `needDefineCorrectAnswer` (in the next table) is `true`. |
+| label         | string | 'Choice x' | false    | The label of the `Input`.<br />`x` is an index number.       |
+| name          | string |            | true     | The name of the `Input`. <br />Also it is the unique id of the choice item. |
+| value         | string |            | true     | The value of the `Input`.                                    |
 
 <h5>Props</h5>
 
-| Name            | Type                     | Default                              | Required | Description                                                  |
-| --------------- | ------------------------ | ------------------------------------ | -------- | ------------------------------------------------------------ |
-| maxItems        | number                   |                                      | false    | Maximum number of items to add, it must be greater than 2.<br />If `null` then unlimited. |
-| maxItemsTipText | string                   | 'A maximum of x choices can be set!' | false    | A warming tip to tell users the maximum number of items to add. Only be displayed when `maxItems` is not `null`.<br />`x` is the `maxItem` value. |
-| onAddMore       | func                     |                                      | true     | Callback fired when the Add More button is clicked.<br />**Signature:**<br/>`function() => void`<br/> |
-| onChange        | func                     |                                      | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(name: string, value: string) => void`<br/>*name:* The name of the `Input` element.<br />*value:* The value of the `Input` element. |
-| onRemove        | func                     | 'Enter Question'                     | false    | Callback fired when removed the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element. |
-| options         | Array\<ChoiceItemProps\> |                                      | true     | See **Choice Item Props** above.<br />The length of options must be greater than 2. |
+| Name                     | Type                     | Default                                   | Required | Description                                                  |
+| ------------------------ | ------------------------ | ----------------------------------------- | -------- | ------------------------------------------------------------ |
+| answerType               | AnswerTypeEnum           |                                           | true     | Which kind of component you want to render for the answer.   |
+| correctAnswerIconTipText | string                   | 'Toggle it as correct / incorrect answer' | false    | The tooltip text of the tick icon button.                    |
+| maxItems                 | number                   |                                           | false    | Maximum number of items to add, it must be greater than 2.<br />If `null` then unlimited. |
+| maxItemsTipText          | string                   | 'A maximum of x choices can be set!'      | false    | A warming tip to tell users the maximum number of items to add. Only be displayed when `maxItems` is not `null`.<br />`x` is the `maxItem` value. |
+| needDefineCorrectAnswer  | bool                     |                                           | false    | If `true` that means you have to define correct answers.<br />At this moment, `onToggleCorrectAnswer` and `correctAnswer` are required. |
+| onAddMore                | func                     |                                           | true     | Callback fired when the Add More button is clicked.<br />**Signature:**<br/>`function() => void`<br/> |
+| onChange                 | func                     |                                           | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(name: string, value: string) => void`<br/>*name:* The name of the `Input` element.<br />*value:* The value of the `Input` element. |
+| onRemove                 | func                     |                                           | true     | Callback fired when removed the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element. |
+| onToggleCorrectAnswer    | func                     |                                           | false    | Callback fired when toggle the tick icon button at the end of the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element.<br />Required when `needDefineCorrectAnswer` is true. |
+| options                  | Array\<ChoiceItemProps\> |                                           | true     | See **Choice Item Props** above.<br />The length of options must be greater than 2. |
 
 
 
