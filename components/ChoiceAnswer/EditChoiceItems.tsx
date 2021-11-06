@@ -78,66 +78,68 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
   }
   return (
     <>
-      <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-        {options.map((opt, index) => {
-          const { label, value, name, correctAnswer } = opt;
-          return (
-            <Grid item xs={12} md={10} lg={8} key={index}>
-              <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-                <Grid item xs={needDefineCorrectAnswer ? 11 : 12}>
-                  <TextField
-                    fullWidth
-                    required
-                    size="small"
-                    margin="dense"
-                    variant="outlined"
-                    label={label || `Choice ${index + 1}`}
-                    name={name}
-                    value={value}
-                    onChange={(event) => {
-                      event.preventDefault();
-                      onChange(name, event.target.value);
-                    }}
-                    InputProps={{
-                      endAdornment:
-                        options.length > 2 ? (
-                          <InputAdornment position="end">
-                            <IconButton
-                              color="error"
-                              size="small"
-                              onClick={() => {
-                                onRemove(name);
-                              }}
-                            >
-                              <CloseIcon fontSize="small" />
-                            </IconButton>
-                          </InputAdornment>
-                        ) : null
-                    }}
-                  />
-                </Grid>
-                {needDefineCorrectAnswer && onToggleCorrectAnswer && (
-                  <Grid item xs={1}>
-                    <Tooltip
-                      title={correctAnswerIconTipText || 'Toggle it as correct / incorrect answer'}
-                    >
-                      <IconButton
-                        sx={{ color: correctAnswer ? 'forestgreen' : 'lightgray' }}
-                        size="medium"
-                        onClick={() => {
-                          onToggleCorrectAnswer(name);
-                        }}
-                      >
-                        <CheckIcon fontSize="medium" />
-                      </IconButton>
-                    </Tooltip>
-                  </Grid>
-                )}
-              </Grid>
+      {options.map((opt, index) => {
+        const { label, value, name, correctAnswer } = opt;
+        return (
+          <Grid
+            container
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            key={index}
+          >
+            <Grid item xs={needDefineCorrectAnswer ? 11 : 12}>
+              <TextField
+                fullWidth
+                required
+                size="small"
+                margin="dense"
+                variant="outlined"
+                label={label || `Choice ${index + 1}`}
+                name={name}
+                value={value}
+                onChange={(event) => {
+                  event.preventDefault();
+                  onChange(name, event.target.value);
+                }}
+                InputProps={{
+                  endAdornment:
+                    options.length > 2 ? (
+                      <InputAdornment position="end">
+                        <IconButton
+                          color="error"
+                          size="small"
+                          onClick={() => {
+                            onRemove(name);
+                          }}
+                        >
+                          <CloseIcon fontSize="small" />
+                        </IconButton>
+                      </InputAdornment>
+                    ) : null
+                }}
+              />
             </Grid>
-          );
-        })}
-      </Grid>
+            {needDefineCorrectAnswer && onToggleCorrectAnswer && (
+              <Grid item xs={1}>
+                <Tooltip
+                  title={correctAnswerIconTipText || 'Toggle it as correct / incorrect answer'}
+                >
+                  <IconButton
+                    sx={{ color: correctAnswer ? 'forestgreen' : 'lightgray' }}
+                    size="medium"
+                    onClick={() => {
+                      onToggleCorrectAnswer(name);
+                    }}
+                  >
+                    <CheckIcon fontSize="medium" />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            )}
+          </Grid>
+        );
+      })}
       <Grid
         container
         direction="row"

@@ -18,30 +18,26 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
   const { options, value, name, viewType, onChange } = props;
 
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-      <Grid item xs={12} md={10} lg={8} textAlign="left">
-        <FormControl component="fieldset">
-          <RadioGroup
-            name={name}
-            onChange={(event) => {
-              event.preventDefault();
-              onChange(event.target.value);
-            }}
-            value={value}
-          >
-            {options.map((opt) => (
-              <FormControlLabel
-                disabled={viewType !== ViewTypeEnum.answer}
-                key={opt.value}
-                value={opt.value}
-                control={opt.label && opt.value ? <Radio size="small" /> : <></>}
-                label={opt.label}
-              />
-            ))}
-          </RadioGroup>
-        </FormControl>
-      </Grid>
-    </Grid>
+    <FormControl component="fieldset">
+      <RadioGroup
+        name={name}
+        onChange={(event) => {
+          event.preventDefault();
+          onChange(event.target.value);
+        }}
+        value={value}
+      >
+        {options.map((opt) => (
+          <FormControlLabel
+            disabled={viewType !== ViewTypeEnum.answer}
+            key={opt.value}
+            value={opt.value}
+            control={opt.label && opt.value ? <Radio size="small" /> : <></>}
+            label={opt.label}
+          />
+        ))}
+      </RadioGroup>
+    </FormControl>
   );
 }
 

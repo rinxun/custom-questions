@@ -41,56 +41,52 @@ function LinkAnswer(props: LinkAnswerProps) {
   }, []);
 
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-      <Grid item xs={12} md={10} lg={8}>
-        <TextField
-          fullWidth
-          type="url"
-          size="small"
-          margin="dense"
-          variant="outlined"
-          name={name}
-          value={value}
-          label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : ''}
-          placeholder="Type your link here..."
-          disabled={disabled || viewType !== ViewTypeEnum.answer}
-          onChange={(event) => {
-            event.preventDefault();
-            onChange(event.target.value);
-          }}
-          inputProps={{ maxLength, minLength }}
-          InputLabelProps={{
-            shrink: viewType !== ViewTypeEnum.answer
-          }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Select
-                  required={required}
-                  size="small"
-                  variant="standard"
-                  margin="dense"
-                  name="linkType"
-                  labelId="link-type-select-label"
-                  id="link-type-select"
-                  value={linkType}
-                  onChange={(event) => {
-                    event.preventDefault();
-                    onToggleLinkType(event.target.value as LinkTypeEnum);
-                  }}
-                >
-                  {options.map((opt) => (
-                    <MenuItem key={opt} value={opt}>
-                      {opt}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </InputAdornment>
-            )
-          }}
-        />
-      </Grid>
-    </Grid>
+    <TextField
+      fullWidth
+      type="url"
+      size="small"
+      margin="dense"
+      variant="outlined"
+      name={name}
+      value={value}
+      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : ''}
+      placeholder="Type your link here..."
+      disabled={disabled || viewType !== ViewTypeEnum.answer}
+      onChange={(event) => {
+        event.preventDefault();
+        onChange(event.target.value);
+      }}
+      inputProps={{ maxLength, minLength }}
+      InputLabelProps={{
+        shrink: viewType !== ViewTypeEnum.answer
+      }}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <Select
+              required={required}
+              size="small"
+              variant="standard"
+              margin="dense"
+              name="linkType"
+              labelId="link-type-select-label"
+              id="link-type-select"
+              value={linkType}
+              onChange={(event) => {
+                event.preventDefault();
+                onToggleLinkType(event.target.value as LinkTypeEnum);
+              }}
+            >
+              {options.map((opt) => (
+                <MenuItem key={opt} value={opt}>
+                  {opt}
+                </MenuItem>
+              ))}
+            </Select>
+          </InputAdornment>
+        )
+      }}
+    />
   );
 }
 

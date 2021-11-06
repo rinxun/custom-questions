@@ -67,24 +67,20 @@ function QuestionGroup(props: QuestionGroupProps) {
 
   return (
     <>
-      <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-        <Grid item xs={12} md={10} lg={8}>
-          <TextField
-            size="small"
-            margin="dense"
-            fullWidth
-            required
-            variant="outlined"
-            label={questionLabel || 'Enter Question'}
-            name="question"
-            value={question}
-            onChange={(event) => {
-              event.preventDefault();
-              onChangeQuestion(event.target.value);
-            }}
-          />
-        </Grid>
-      </Grid>
+      <TextField
+        size="small"
+        margin="dense"
+        fullWidth
+        required
+        variant="outlined"
+        label={questionLabel || 'Enter Question'}
+        name="question"
+        value={question}
+        onChange={(event) => {
+          event.preventDefault();
+          onChangeQuestion(event.target.value);
+        }}
+      />
       <AnswerTypeSelector {...answerType} />
       {answerContent}
       {answerType.value !== AnswerTypeEnum.upload && showScoring && scoring && (

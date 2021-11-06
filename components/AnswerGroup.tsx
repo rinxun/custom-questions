@@ -49,13 +49,9 @@ function AnswerGroup(props: AnswerGroupProps) {
 
   return (
     <>
-      <Grid container direction="row" justifyContent="flex-start" alignItems="center">
-        <Grid item xs={12}>
-          <Typography variant="body2" align="left">
-            {question}
-          </Typography>
-        </Grid>
-      </Grid>
+      <Typography variant="body2" align="left">
+        {question}
+      </Typography>
       {answerContent}
     </>
   );
