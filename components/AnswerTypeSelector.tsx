@@ -18,17 +18,18 @@ export interface AnswerTypeSelectorProps {
  */
 function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   const { value, onChange, label, hiddenOptions = [] } = props;
-  const options = useMemo(() => {
-    const kvs: Array<string> = [];
-    for (let type in AnswerTypeEnum) {
-      const enumVal = Object(AnswerTypeEnum)[type];
-      // if user sets the hiddenOptions, we should only show those types not in the hiddenOptions
-      if (!hiddenOptions.includes(enumVal)) {
-        kvs.push(enumVal);
-      }
-    }
-    return kvs;
-  }, []);
+
+  const options = useMemo(
+    () => [
+      { label: 'Short Text', value: AnswerTypeEnum.shortText },
+      { label: 'Long Text', value: AnswerTypeEnum.longText },
+      { label: 'Upload File', value: AnswerTypeEnum.upload },
+      { label: 'Link', value: AnswerTypeEnum.link },
+      { label: 'Single Choice', value: AnswerTypeEnum.singleChoice },
+      { label: 'Multiple Choice', value: AnswerTypeEnum.multiChoice }
+    ],
+    []
+  );
 
   return (
     <Grid
@@ -57,8 +58,8 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
             }}
           >
             {options.map((opt) => (
-              <MenuItem key={opt} value={opt}>
-                {opt}
+              <MenuItem key={opt.value} value={opt.value}>
+                {opt.label}
               </MenuItem>
             ))}
           </Select>

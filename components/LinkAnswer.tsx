@@ -9,6 +9,7 @@ import { LinkTypeEnum, ViewTypeEnum } from '../enums';
 export interface LinkAnswerProps {
   name?: string;
   value: string;
+  label?: string;
   required?: boolean;
   maxLength?: number;
   minLength?: number;
@@ -23,6 +24,7 @@ function LinkAnswer(props: LinkAnswerProps) {
   const {
     name,
     value,
+    label,
     required,
     viewType,
     maxLength,
@@ -32,13 +34,17 @@ function LinkAnswer(props: LinkAnswerProps) {
     onChange,
     onToggleLinkType
   } = props;
-  const options = useMemo(() => {
-    const kvs: Array<string> = [];
-    for (let item in LinkTypeEnum) {
-      kvs.push(Object(LinkTypeEnum)[item]);
-    }
-    return kvs;
-  }, []);
+
+  const options = useMemo(
+    () => [
+      { label: 'http://', value: LinkTypeEnum.http },
+      { label: 'https://', value: LinkTypeEnum.https },
+      { label: 'mailto://', value: LinkTypeEnum.mailto },
+      { label: 'ftp://', value: LinkTypeEnum.ftp },
+      { label: 'sftp://', value: LinkTypeEnum.sftp }
+    ],
+    []
+  );
 
   return (
     <TextField
@@ -49,7 +55,7 @@ function LinkAnswer(props: LinkAnswerProps) {
       variant="outlined"
       name={name}
       value={value}
-      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : ''}
+      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : label || ''}
       placeholder="Type your link here..."
       disabled={disabled || viewType !== ViewTypeEnum.answer}
       onChange={(event) => {
@@ -78,8 +84,8 @@ function LinkAnswer(props: LinkAnswerProps) {
               }}
             >
               {options.map((opt) => (
-                <MenuItem key={opt} value={opt}>
-                  {opt}
+                <MenuItem key={opt.value} value={opt.value}>
+                  {opt.label}
                 </MenuItem>
               ))}
             </Select>
