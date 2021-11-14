@@ -154,6 +154,7 @@ import { LinkAnswer } from '@rinxun/custom-questions';
 | Name             | Type         | Default | Required | Description                                                  |
 | ---------------- | ------------ | ------- | -------- | ------------------------------------------------------------ |
 | disabled         | bool         | false   | false    | If `true`, the component is disabled.                        |
+| label            | string       |         | false    | The label of the `Input` element.                            |
 | linkType         | LinkTypeEnum |         | true     | The value of the `Select` element, required for a controlled component. |
 | maxLength        | number       |         | false    | Maximum number of length to type.                            |
 | minLength        | number       |         | false    | Minimum number of length to type.                            |
@@ -209,6 +210,7 @@ import { TextAnswer } from '@rinxun/custom-questions';
 | ----------- | -------------- | -------------------------- | -------- | ------------------------------------------------------------ |
 | answerType  | AnswerTypeEnum |                            | true     | `shortText` or `longText`.                                   |
 | disabled    | bool           | false                      | false    | If `true`, the component is disabled.                        |
+| label       | string         |                            | false    | The label of the `Input` element.                            |
 | maxLength   | number         |                            | false    | Maximum number of length to type.                            |
 | minLength   | number         |                            | false    | Minimum number of length to type.                            |
 | name        | string         |                            | false    | The name of the `Input` element.                             |
@@ -305,7 +307,7 @@ import { SingleChoiseAnswer } from '@rinxun/custom-questions';
 
 | Name     | Type                                      | Default | Required | Description                                                  |
 | -------- | ----------------------------------------- | ------- | -------- | ------------------------------------------------------------ |
-| name     | string                                    |         | true     | The name of the `RadioGroup` element.                        |
+| name     | string                                    |         | false    | The name of the `RadioGroup` element.                        |
 | onChange | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the selected `Radio` element. |
 | options  | Array\<{ label: string; value: string }\> |         | true     | The radio options for rendering.                             |
 | value    | string                                    |         | true     | The selected value of the `RadioGroup` element.              |
@@ -327,7 +329,7 @@ import { MultiChoiseAnswer } from '@rinxun/custom-questions';
 
 | Name     | Type                                      | Default | Required | Description                                                  |
 | -------- | ----------------------------------------- | ------- | -------- | ------------------------------------------------------------ |
-| name     | string                                    |         | true     | The name of the `Form` element.                              |
+| name     | string                                    |         | false    | The name of the `Form` element.                              |
 | onChange | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string, checked: boolean) => void`<br/>*value:* The value of the checked `checkbox` element.<br />*checked:* if `true` that means the checkbox is checked, otherwise, unchecked. |
 | options  | Array\<{ label: string; value: string }\> |         | true     | The checkbox options for rendering.                          |
 | value    | Array\<string\>                           |         | true     | The values of all checked`checkbox` elements.                |
