@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { ViewTypeEnum } from '../../enums';
 
 export interface MultiChoiceAnswerProps {
-  name: string;
+  name?: string;
   viewType: ViewTypeEnum;
   options: Array<{ label: string; value: string }>;
   value: Array<string>;

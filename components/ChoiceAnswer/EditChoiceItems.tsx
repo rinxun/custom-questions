@@ -37,6 +37,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
     maxItems,
     maxItemsTipText
   } = props;
+
   const theme = useTheme();
 
   const canAddMore = useMemo(

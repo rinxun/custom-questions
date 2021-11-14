@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import { ViewTypeEnum } from '../../enums';
 
 export interface SingleChoiceAnswerProps {
-  name: string;
+  name?: string;
   viewType: ViewTypeEnum;
   options: Array<{ label: string; value: string }>;
   value: string;

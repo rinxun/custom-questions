@@ -6,6 +6,7 @@ import { AnswerTypeEnum, ViewTypeEnum } from '../enums';
 export interface TextAnswerProps {
   name?: string;
   value: string;
+  label?: string;
   required?: boolean;
   maxLength?: number;
   minLength?: number;
@@ -20,6 +21,7 @@ function TextAnswer(props: TextAnswerProps) {
   const {
     name,
     value,
+    label,
     required,
     maxLength,
     minLength,
@@ -37,7 +39,7 @@ function TextAnswer(props: TextAnswerProps) {
       size="small"
       margin="dense"
       variant="outlined"
-      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : ''}
+      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : label || ''}
       name={name}
       value={value}
       placeholder={placeholder || 'Type your answer here...'}
