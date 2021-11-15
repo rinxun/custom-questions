@@ -19,14 +19,15 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   const { value, onChange, label, hiddenOptions = [] } = props;
 
   const options = useMemo(
-    () => [
-      { label: 'Short Text', value: AnswerTypeEnum.shortText },
-      { label: 'Long Text', value: AnswerTypeEnum.longText },
-      { label: 'Upload File', value: AnswerTypeEnum.upload },
-      { label: 'Link', value: AnswerTypeEnum.link },
-      { label: 'Single Choice', value: AnswerTypeEnum.singleChoice },
-      { label: 'Multiple Choice', value: AnswerTypeEnum.multiChoice }
-    ],
+    () =>
+      [
+        { label: 'Short Text', value: AnswerTypeEnum.shortText },
+        { label: 'Long Text', value: AnswerTypeEnum.longText },
+        { label: 'Upload File', value: AnswerTypeEnum.upload },
+        { label: 'Link', value: AnswerTypeEnum.link },
+        { label: 'Single Choice', value: AnswerTypeEnum.singleChoice },
+        { label: 'Multiple Choice', value: AnswerTypeEnum.multiChoice }
+      ].filter((opt) => !hiddenOptions.includes(opt.value)),
     []
   );
 
