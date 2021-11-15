@@ -1,5 +1,4 @@
 import { memo, useMemo } from 'react';
-import Grid from '@mui/material/Grid';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
@@ -32,40 +31,29 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   );
 
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="flex-start"
-      alignItems="center"
-      spacing={1}
-      sx={{ mt: 0.125, mb: 0.5 }}
-    >
-      <Grid item xs={12} md={3} lg={2}>
-        <FormControl fullWidth>
-          <InputLabel id="answer-type-select-label">{label || 'Select Answer Type'}</InputLabel>
-          <Select
-            label={label || 'Select Answer Type'}
-            size="small"
-            margin="dense"
-            sx={{ textAlign: 'left' }}
-            name="answerType"
-            labelId="answer-type-select-label"
-            id="answer-type-select"
-            value={value}
-            onChange={(event) => {
-              event.preventDefault();
-              onChange(event.target.value as AnswerTypeEnum);
-            }}
-          >
-            {options.map((opt) => (
-              <MenuItem key={opt.value} value={opt.value}>
-                {opt.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Grid>
-    </Grid>
+    <FormControl fullWidth>
+      <InputLabel id="answer-type-select-label">{label || 'Select Answer Type'}</InputLabel>
+      <Select
+        label={label || 'Select Answer Type'}
+        size="small"
+        margin="dense"
+        sx={{ textAlign: 'left' }}
+        name="answerType"
+        labelId="answer-type-select-label"
+        id="answer-type-select"
+        value={value}
+        onChange={(event) => {
+          event.preventDefault();
+          onChange(event.target.value as AnswerTypeEnum);
+        }}
+      >
+        {options.map((opt) => (
+          <MenuItem key={opt.value} value={opt.value}>
+            {opt.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 

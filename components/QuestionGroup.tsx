@@ -81,7 +81,18 @@ function QuestionGroup(props: QuestionGroupProps) {
           onChangeQuestion(event.target.value);
         }}
       />
-      <AnswerTypeSelector {...answerType} />
+      <Grid
+        container
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="center"
+        spacing={1}
+        sx={{ mt: 0.125, mb: 0.5 }}
+      >
+        <Grid item xs={12} md={4} lg={3}>
+          <AnswerTypeSelector {...answerType} />
+        </Grid>
+      </Grid>
       {answerContent}
       {answerType.value !== AnswerTypeEnum.upload && showScoring && scoring && (
         <Scoring {...scoring} />
