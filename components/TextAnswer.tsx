@@ -53,7 +53,7 @@ function TextAnswer(props: TextAnswerProps) {
       }}
       inputProps={{ maxLength, minLength }}
       InputLabelProps={{
-        shrink: viewType !== ViewTypeEnum.answer
+        shrink: viewType !== ViewTypeEnum.answer ? true : undefined
       }}
     />
   );
