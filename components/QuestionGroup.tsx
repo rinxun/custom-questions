@@ -12,6 +12,7 @@ import AnswerTypeSelector, { AnswerTypeSelectorProps } from './AnswerTypeSelecto
 interface QuestionGroupProps {
   question: string;
   questionLabel?: string;
+  inputLabel?: string;
   answerType: AnswerTypeSelectorProps;
   choices?: EditChoiceItemsProps;
   showScoring?: boolean;
@@ -20,8 +21,16 @@ interface QuestionGroupProps {
 }
 
 function QuestionGroup(props: QuestionGroupProps) {
-  const { scoring, questionLabel, choices, answerType, question, onChangeQuestion, showScoring } =
-    props;
+  const {
+    scoring,
+    questionLabel,
+    inputLabel,
+    choices,
+    answerType,
+    question,
+    onChangeQuestion,
+    showScoring
+  } = props;
 
   const answerContent = useMemo(() => {
     const { value: type } = answerType;
@@ -32,6 +41,7 @@ function QuestionGroup(props: QuestionGroupProps) {
           <TextAnswer
             name=""
             value=""
+            label={inputLabel}
             onChange={() => {}}
             viewType={ViewTypeEnum.edit}
             answerType={type}
@@ -45,6 +55,7 @@ function QuestionGroup(props: QuestionGroupProps) {
           <LinkAnswer
             name=""
             value=""
+            label={inputLabel}
             onChange={() => {}}
             onToggleLinkType={() => {}}
             linkType={LinkTypeEnum.https}
