@@ -53,6 +53,8 @@ This project is licensed under the terms of the [MIT license](https://github.com
 
 Here is a quick example to get you started:
 
+#### Typescript
+
 ```typescript
 import { useState } from 'react';
 import { Enums, AnswerGroup, TextAnswerProps } from '@rinxun/custom-questions';
@@ -71,8 +73,35 @@ function CustomQuestionDemo() {
             onChange: (val: string) => {
               setTextValue(val);
             },
-            viewType: Enums.ViewTypeEnum.preview
+            viewType: Enums.ViewTypeEnum.answer
           } as TextAnswerProps
+        }
+      />
+  )
+}
+```
+#### Javascript
+
+```javascript
+import { useState } from 'react';
+import { Enums, AnswerGroup, TextAnswerProps } from '@rinxun/custom-questions';
+
+function CustomQuestionDemo() {
+  const [textValue, setTextValue] = useState('');
+  
+  return (
+      <AnswerGroup
+        answerType={Enums.AnswerTypeEnum.shortText}
+        question="What's your name?"
+        answer={
+          {
+            name: 'demo',
+            value: textValue,
+            onChange: (val) => {
+              setTextValue(val);
+            },
+            viewType: Enums.ViewTypeEnum.answer
+          }
         }
       />
   )
