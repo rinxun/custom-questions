@@ -53,9 +53,9 @@ This project is licensed under the terms of the [MIT license](https://github.com
 
 Here is a quick example to get you started:
 
-#### Typescript
+#### TypeScript
 
-```typescript
+```tsx
 import { useState } from 'react';
 import { Enums, AnswerGroup, TextAnswerProps } from '@rinxun/custom-questions';
 
@@ -80,9 +80,9 @@ function CustomQuestionDemo() {
   )
 }
 ```
-#### Javascript
+#### JavaScript
 
-```javascript
+```jsx
 import { useState } from 'react';
 import { Enums, AnswerGroup, TextAnswerProps } from '@rinxun/custom-questions';
 
