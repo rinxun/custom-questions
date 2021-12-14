@@ -108,7 +108,7 @@ function CustomQuestionDemo() {
 }
 ```
 
-We prepared a [live and interactive demo](https://codesandbox.io/s/custom-questions-sih9f?file=/src/App.tsx) for you to get started.
+Take a look at the `demo` directory or you can visit the [live and interactive demo](https://codesandbox.io/s/custom-questions-sih9f?file=/src/App.tsx) to get started.
 
 
 
