@@ -55,7 +55,7 @@ function LinkAnswer(props: LinkAnswerProps) {
       variant="outlined"
       name={name}
       value={value}
-      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : label || ''}
+      label={label ?? (viewType !== ViewTypeEnum.answer ? 'Preview' : '')}
       placeholder="Type your link here..."
       disabled={disabled || viewType !== ViewTypeEnum.answer}
       onChange={(event) => {

@@ -39,7 +39,7 @@ function TextAnswer(props: TextAnswerProps) {
       size="small"
       margin="dense"
       variant="outlined"
-      label={viewType !== ViewTypeEnum.answer ? 'Answer Preview' : label || ''}
+      label={label ?? (viewType !== ViewTypeEnum.answer ? 'Preview' : '')}
       name={name}
       value={value}
       placeholder={placeholder || 'Type your answer here...'}
