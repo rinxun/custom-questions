@@ -382,6 +382,7 @@ import { QuestionGroup } from '@rinxun/custom-questions';
 | ---------------- | ----------------------- | ---------------- | -------- | ------------------------------------------------------------ |
 | answerType       | AnswerTypeSelectorProps |                  | true     | See props of `AnswerTypeSelector` .                          |
 | choices          | EditChoiceItemsProps    |                  | true     | See props of `EditChoiceItems`.                              |
+| inputLabel       | string                  | 'Preview'        | false    | The label of the `TextAnswer` and `LinkAnswer` .             |
 | onChangeQuestion | func                    |                  | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
 | question         | string                  |                  | true     | The value of the Question `Input` element.                   |
 | questionLabel    | string                  | 'Enter Question' | false    | The label of the Question `Input` element.                   |
