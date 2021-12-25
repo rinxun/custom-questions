@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import Grid from '@mui/material/Grid';
+import colorAlpha from 'color-alpha';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
@@ -10,6 +10,7 @@ export interface LinkAnswerProps {
   name?: string;
   value: string;
   label?: string;
+  color?: string;
   required?: boolean;
   maxLength?: number;
   minLength?: number;
@@ -25,6 +26,7 @@ function LinkAnswer(props: LinkAnswerProps) {
     name,
     value,
     label,
+    color,
     required,
     viewType,
     maxLength,
@@ -64,9 +66,15 @@ function LinkAnswer(props: LinkAnswerProps) {
       }}
       inputProps={{ maxLength, minLength }}
       InputLabelProps={{
-        shrink: viewType !== ViewTypeEnum.answer
+        shrink: viewType !== ViewTypeEnum.answer,
+        sx: { '&.Mui-focused': { color } }
       }}
       InputProps={{
+        sx: {
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: color
+          }
+        },
         startAdornment: (
           <InputAdornment position="start">
             <Select
@@ -78,13 +86,25 @@ function LinkAnswer(props: LinkAnswerProps) {
               labelId="link-type-select-label"
               id="link-type-select"
               value={linkType}
+              sx={{
+                '&.Mui-focused .MuiInputBase-root': { borderBottomColor: color },
+                '&.MuiInputBase-root:after': { borderBottomColor: color }
+              }}
               onChange={(event) => {
                 event.preventDefault();
                 onToggleLinkType(event.target.value as LinkTypeEnum);
               }}
             >
               {options.map((opt) => (
-                <MenuItem key={opt.value} value={opt.value}>
+                <MenuItem
+                  key={opt.value}
+                  value={opt.value}
+                  sx={{
+                    '&.MuiMenuItem-root.Mui-selected': {
+                      backgroundColor: color ? colorAlpha(color, 0.08) : undefined
+                    }
+                  }}
+                >
                   {opt.label}
                 </MenuItem>
               ))}
