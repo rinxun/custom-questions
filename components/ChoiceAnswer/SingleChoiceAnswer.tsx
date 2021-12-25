@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import Grid from '@mui/material/Grid';
+import { memo, useMemo } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -18,6 +17,8 @@ export interface SingleChoiceAnswerProps {
 function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
   const { options, color, value, name, viewType, onChange } = props;
 
+  const disabled = useMemo(() => viewType !== ViewTypeEnum.answer, [viewType]);
+
   return (
     <FormControl component="fieldset">
       <RadioGroup
@@ -30,12 +31,15 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
       >
         {options.map((opt) => (
           <FormControlLabel
-            disabled={viewType !== ViewTypeEnum.answer}
+            disabled={disabled}
             key={opt.value}
             value={opt.value}
             control={
               opt.label && opt.value ? (
-                <Radio size="small" sx={{ '&.MuiRadio-root.Mui-checked': { color } }} />
+                <Radio
+                  size="small"
+                  sx={{ '&.MuiRadio-root.Mui-checked': { color: !disabled ? color : undefined } }}
+                />
               ) : (
                 <></>
               )

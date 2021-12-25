@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import Grid from '@mui/material/Grid';
+import { memo, useMemo } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControl from '@mui/material/FormControl';
@@ -18,12 +17,14 @@ export interface MultiChoiceAnswerProps {
 function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
   const { options, color, value, name, viewType, onChange } = props;
 
+  const disabled = useMemo(() => viewType !== ViewTypeEnum.answer, [viewType]);
+
   return (
     <FormControl component="fieldset" name={name}>
       <FormGroup>
         {options.map((opt) => (
           <FormControlLabel
-            disabled={viewType !== ViewTypeEnum.answer}
+            disabled={disabled}
             key={opt.value}
             value={opt.value}
             control={
@@ -34,7 +35,9 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
                     event.preventDefault();
                     onChange(opt.value, event.target.checked);
                   }}
-                  sx={{ '&.MuiCheckbox-root.Mui-checked': { color } }}
+                  sx={{
+                    '&.MuiCheckbox-root.Mui-checked': { color: !disabled ? color : undefined }
+                  }}
                   name={opt.label}
                 />
               ) : (
