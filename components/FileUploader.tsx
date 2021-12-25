@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 interface FileUploadProps {
   maxWidth?: string;
   height?: string;
+  color?: string;
   index?: number;
   multiple?: boolean;
   accept?: string;
@@ -40,6 +41,7 @@ function FileUpload(props: FileUploadProps) {
     maxSize = 1024 * 1024 * 5,
     maxWidth = '430px',
     accept = '',
+    color,
     multiple = true,
     disabled = false,
     loading = false,
@@ -102,7 +104,7 @@ function FileUpload(props: FileUploadProps) {
         <div {...getRootProps()}>
           <input {...getInputProps()} />
           <Link
-            color={disabled ? theme.palette.grey[400] : theme.palette.primary.main}
+            color={disabled ? theme.palette.grey[400] : color || theme.palette.primary.main}
             sx={{
               fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
               cursor: disabled ? 'not-allowed' : 'pointer'
@@ -152,7 +154,7 @@ function FileUpload(props: FileUploadProps) {
                 onClick={open}
                 sx={{
                   backgroundColor: 'white !important',
-                  color: disabled ? theme.palette.grey[400] : theme.palette.primary.main,
+                  color: disabled ? theme.palette.grey[400] : color || theme.palette.primary.main,
                   fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
                   cursor: disabled ? 'not-allowed' : 'pointer'
                 }}

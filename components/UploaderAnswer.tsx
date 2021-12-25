@@ -13,6 +13,7 @@ export interface FileProps {
 }
 
 export interface UploaderAnswerProps {
+  color?: string;
   files: Array<FileProps>;
   onUpload: (files: Array<File>, index?: number) => void;
   onRemove: (id: string | number) => void;
@@ -26,7 +27,7 @@ export interface UploaderAnswerProps {
 }
 
 function UploaderAnswer(props: UploaderAnswerProps) {
-  const { files, onUpload, onRemove, viewType, warmingTips, maxSize, ...rest } = props;
+  const { files, color, onUpload, onRemove, viewType, warmingTips, maxSize, ...rest } = props;
 
   return (
     <>
@@ -42,6 +43,7 @@ function UploaderAnswer(props: UploaderAnswerProps) {
         {viewType !== ViewTypeEnum.edit && (
           <Grid item xs={12} md={10} lg={8}>
             <FileUploader
+              color={color}
               onUpload={onUpload}
               disabled={viewType !== ViewTypeEnum.answer}
               maxSize={maxSize}
@@ -52,7 +54,7 @@ function UploaderAnswer(props: UploaderAnswerProps) {
       </Grid>
       {viewType === ViewTypeEnum.answer && files && files.length > 0 && (
         <>
-          <Typography component="p" variant="body2" color="primary" align="left">
+          <Typography component="p" variant="body2" align="left">
             Files:
           </Typography>
           <Grid container direction="column" justifyContent="center" alignItems="flex-start">
