@@ -11,6 +11,7 @@ import AnswerTypeSelector, { AnswerTypeSelectorProps } from './AnswerTypeSelecto
 
 interface QuestionGroupProps {
   question: string;
+  color?: string;
   questionLabel?: string;
   inputLabel?: string;
   answerType: AnswerTypeSelectorProps;
@@ -22,6 +23,7 @@ interface QuestionGroupProps {
 
 function QuestionGroup(props: QuestionGroupProps) {
   const {
+    color,
     scoring,
     questionLabel,
     inputLabel,
@@ -39,6 +41,7 @@ function QuestionGroup(props: QuestionGroupProps) {
       case AnswerTypeEnum.shortText:
         return (
           <TextAnswer
+            color={color}
             name=""
             value=""
             label={inputLabel}
@@ -53,6 +56,7 @@ function QuestionGroup(props: QuestionGroupProps) {
       case AnswerTypeEnum.link:
         return (
           <LinkAnswer
+            color={color}
             name=""
             value=""
             label={inputLabel}
@@ -65,6 +69,7 @@ function QuestionGroup(props: QuestionGroupProps) {
       case AnswerTypeEnum.upload:
         return (
           <UploaderAnswer
+            color={color}
             files={[]}
             onUpload={() => {}}
             onRemove={() => {}}
@@ -90,6 +95,18 @@ function QuestionGroup(props: QuestionGroupProps) {
         onChange={(event) => {
           event.preventDefault();
           onChangeQuestion(event.target.value);
+        }}
+        InputProps={{
+          sx: color
+            ? {
+                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: color
+                }
+              }
+            : undefined
+        }}
+        InputLabelProps={{
+          sx: color ? { '&.Mui-focused': { color } } : undefined
         }}
       />
       <Grid
