@@ -7,6 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import NumberInput from './NumberInput';
 
 export interface ScoringProps {
+  color?: string;
   totalScore: number | string;
   passScore: number | string;
   turnOffScoring: boolean;
@@ -27,6 +28,7 @@ function Scoring(props: ScoringProps) {
   // check if the page size is less than sm
   const isLessThanSm = useMediaQuery(theme.breakpoints.down('sm'));
   const {
+    color,
     turnOffScoring = false,
     passScore,
     totalScore,
@@ -50,6 +52,7 @@ function Scoring(props: ScoringProps) {
       <Grid item xs={12} md={3} lg={2}>
         <NumberInput
           fullWidth
+          color={color}
           required={!turnOffScoring}
           disabled={turnOffScoring}
           variant="outlined"
@@ -63,6 +66,7 @@ function Scoring(props: ScoringProps) {
       <Grid item xs={12} md={3} lg={2}>
         <NumberInput
           fullWidth
+          color={color}
           required={!turnOffScoring}
           disabled={turnOffScoring}
           type="number"
@@ -87,6 +91,12 @@ function Scoring(props: ScoringProps) {
               }}
               name="turnOffScoring"
               color="primary"
+              sx={{
+                '& .MuiSwitch-switchBase.Mui-checked': { color },
+                '& .MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track': {
+                  backgroundColor: color
+                }
+              }}
             />
           }
         />

@@ -1,14 +1,11 @@
 import { useState, useEffect, ChangeEvent, memo } from 'react';
 import Field, { TextFieldProps } from '@mui/material/TextField';
 
-type TextProps = Omit<TextFieldProps, 'onChange'>;
+type TextProps = Omit<Omit<TextFieldProps, 'onChange'>, 'color'>;
 
 interface NumberInputProps {
   name: string;
-  label?: string;
-  disabled?: boolean;
-  required?: boolean;
-  fullWidth?: boolean;
+  color?: string;
   onChange: (value: string) => void;
   handleFocus?: () => void;
   handleLeave?: () => void;
@@ -27,10 +24,8 @@ function NumberInput(props: NumberInputProps & TextProps) {
     name,
     label,
     value,
+    color,
     section,
-    disabled = false,
-    required = false,
-    fullWidth = false,
     minValue = Number.MIN_SAFE_INTEGER,
     maxValue = Number.MAX_SAFE_INTEGER,
     onChange,
@@ -107,9 +102,6 @@ function NumberInput(props: NumberInputProps & TextProps) {
       size="small"
       margin="dense"
       type="number"
-      fullWidth={fullWidth}
-      disabled={disabled}
-      required={required}
       name={name}
       label={label}
       value={value === undefined || value === null ? '' : value}
@@ -120,13 +112,22 @@ function NumberInput(props: NumberInputProps & TextProps) {
         onBlur: () => {
           handleBlur();
           handleLeave();
+        },
+        sx: {
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: color
+          }
         }
+      }}
+      InputLabelProps={{
+        sx: { '&.Mui-focused': { color } }
       }}
       onChange={(event) => {
         handleChange(event);
       }}
       error={error || helperTextOpen}
       helperText={error || helperTextOpen ? errMsg : ''}
+      {...rest}
     />
   );
 }
