@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { AnswerTypeEnum, ViewTypeEnum } from '../enums';
 
@@ -7,6 +6,7 @@ export interface TextAnswerProps {
   name?: string;
   value: string;
   label?: string;
+  color?: string;
   required?: boolean;
   maxLength?: number;
   minLength?: number;
@@ -22,6 +22,7 @@ function TextAnswer(props: TextAnswerProps) {
     name,
     value,
     label,
+    color,
     required,
     maxLength,
     minLength,
@@ -52,7 +53,15 @@ function TextAnswer(props: TextAnswerProps) {
         onChange(event.target.value);
       }}
       inputProps={{ maxLength, minLength }}
+      InputProps={{
+        sx: {
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: color
+          }
+        }
+      }}
       InputLabelProps={{
+        sx: { '&.Mui-focused': { color } },
         shrink: viewType !== ViewTypeEnum.answer ? true : undefined
       }}
     />
