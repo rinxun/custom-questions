@@ -159,7 +159,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
         alignItems="center"
         sx={{ m: theme.spacing(1, 0) }}
       >
-        {maxItems && (
+        {!canAddMore && (
           <Grid item xs={12}>
             <Typography
               variant="caption"
