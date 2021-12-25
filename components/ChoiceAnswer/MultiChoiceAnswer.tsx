@@ -8,6 +8,7 @@ import { ViewTypeEnum } from '../../enums';
 
 export interface MultiChoiceAnswerProps {
   name?: string;
+  color?: string;
   viewType: ViewTypeEnum;
   options: Array<{ label: string; value: string }>;
   value: Array<string>;
@@ -15,7 +16,7 @@ export interface MultiChoiceAnswerProps {
 }
 
 function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
-  const { options, value, name, viewType, onChange } = props;
+  const { options, color, value, name, viewType, onChange } = props;
 
   return (
     <FormControl component="fieldset" name={name}>
@@ -33,6 +34,7 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
                     event.preventDefault();
                     onChange(opt.value, event.target.checked);
                   }}
+                  sx={{ '&.MuiCheckbox-root.Mui-checked': { color } }}
                   name={opt.label}
                 />
               ) : (

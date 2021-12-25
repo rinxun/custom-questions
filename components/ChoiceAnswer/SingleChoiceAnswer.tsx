@@ -8,6 +8,7 @@ import { ViewTypeEnum } from '../../enums';
 
 export interface SingleChoiceAnswerProps {
   name?: string;
+  color?: string;
   viewType: ViewTypeEnum;
   options: Array<{ label: string; value: string }>;
   value: string;
@@ -15,7 +16,7 @@ export interface SingleChoiceAnswerProps {
 }
 
 function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
-  const { options, value, name, viewType, onChange } = props;
+  const { options, color, value, name, viewType, onChange } = props;
 
   return (
     <FormControl component="fieldset">
@@ -32,7 +33,13 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
             disabled={viewType !== ViewTypeEnum.answer}
             key={opt.value}
             value={opt.value}
-            control={opt.label && opt.value ? <Radio size="small" /> : <></>}
+            control={
+              opt.label && opt.value ? (
+                <Radio size="small" sx={{ '&.MuiRadio-root.Mui-checked': { color } }} />
+              ) : (
+                <></>
+              )
+            }
             label={opt.label}
           />
         ))}
