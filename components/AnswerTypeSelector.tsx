@@ -1,4 +1,5 @@
 import { memo, useMemo } from 'react';
+import colorAlpha from 'color-alpha';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
@@ -7,6 +8,7 @@ import { AnswerTypeEnum } from '../enums';
 
 export interface AnswerTypeSelectorProps {
   value: AnswerTypeEnum;
+  color?: string;
   label?: string;
   hiddenOptions?: Array<AnswerTypeEnum>;
   onChange: (value: AnswerTypeEnum) => void;
@@ -16,7 +18,7 @@ export interface AnswerTypeSelectorProps {
  * Component For answer type
  */
 function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
-  const { value, onChange, label, hiddenOptions = [] } = props;
+  const { value, color, onChange, label, hiddenOptions = [] } = props;
 
   const options = useMemo(
     () =>
@@ -33,12 +35,17 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
 
   return (
     <FormControl fullWidth>
-      <InputLabel id="answer-type-select-label">{label || 'Select Answer Type'}</InputLabel>
+      <InputLabel id="answer-type-select-label" sx={{ '&.Mui-focused': { color } }}>
+        {label || 'Select Answer Type'}
+      </InputLabel>
       <Select
         label={label || 'Select Answer Type'}
         size="small"
         margin="dense"
-        sx={{ textAlign: 'left' }}
+        sx={{
+          textAlign: 'left',
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: color }
+        }}
         name="answerType"
         labelId="answer-type-select-label"
         id="answer-type-select"
@@ -49,7 +56,15 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
         }}
       >
         {options.map((opt) => (
-          <MenuItem key={opt.value} value={opt.value}>
+          <MenuItem
+            key={opt.value}
+            value={opt.value}
+            sx={{
+              '&.MuiMenuItem-root.Mui-selected': {
+                backgroundColor: color ? colorAlpha(color, 0.08) : undefined
+              }
+            }}
+          >
             {opt.label}
           </MenuItem>
         ))}
