@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ViewTypeEnum } from '../enums';
 import FileUploader from './FileUploader';
+import withTheme from './withTheme';
 
 export interface FileProps {
   id: string | number;
@@ -95,4 +96,4 @@ function UploaderAnswer(props: UploaderAnswerProps) {
   );
 }
 
-export default memo(UploaderAnswer);
+export default withTheme(memo(UploaderAnswer));

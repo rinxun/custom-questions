@@ -5,6 +5,7 @@ import Switch from '@mui/material/Switch';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import NumberInput from './NumberInput';
+import withTheme from './withTheme';
 
 export interface ScoringProps {
   color?: string;
@@ -105,4 +106,4 @@ function Scoring(props: ScoringProps) {
   );
 }
 
-export default memo(Scoring);
+export default withTheme(memo(Scoring));

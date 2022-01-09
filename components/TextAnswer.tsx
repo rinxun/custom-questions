@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import TextField from '@mui/material/TextField';
 import { AnswerTypeEnum, ViewTypeEnum } from '../enums';
+import withTheme from './withTheme';
 
 export interface TextAnswerProps {
   name?: string;
@@ -68,4 +69,4 @@ function TextAnswer(props: TextAnswerProps) {
   );
 }
 
-export default memo(TextAnswer);
+export default withTheme(memo(TextAnswer));

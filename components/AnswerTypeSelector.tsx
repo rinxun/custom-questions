@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { AnswerTypeEnum } from '../enums';
+import withTheme from './withTheme';
 
 export interface AnswerTypeSelectorProps {
   value: AnswerTypeEnum;
@@ -73,4 +74,4 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   );
 }
 
-export default memo(AnswerTypeSelector);
+export default withTheme(memo(AnswerTypeSelector));

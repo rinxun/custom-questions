@@ -8,6 +8,7 @@ import TextAnswer from './TextAnswer';
 import LinkAnswer from './LinkAnswer';
 import UploaderAnswer from './UploaderAnswer';
 import AnswerTypeSelector, { AnswerTypeSelectorProps } from './AnswerTypeSelector';
+import withTheme from './withTheme';
 
 interface QuestionGroupProps {
   question: string;
@@ -129,4 +130,4 @@ function QuestionGroup(props: QuestionGroupProps) {
   );
 }
 
-export default memo(QuestionGroup);
+export default withTheme(memo(QuestionGroup));

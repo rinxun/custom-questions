@@ -1,9 +1,11 @@
 import { memo, useMemo } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import { ViewTypeEnum } from '../../enums';
+import withTheme from '../withTheme';
 
 export interface SingleChoiceAnswerProps {
   name?: string;
@@ -44,7 +46,11 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
                 <></>
               )
             }
-            label={opt.label}
+            label={
+              <Typography fontSize={16} align="left">
+                {opt.label}
+              </Typography>
+            }
           />
         ))}
       </RadioGroup>
@@ -52,4 +58,4 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
   );
 }
 
-export default memo(SingleChoiseAnswer);
+export default withTheme(memo(SingleChoiseAnswer));

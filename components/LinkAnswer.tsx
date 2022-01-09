@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { LinkTypeEnum, ViewTypeEnum } from '../enums';
+import withTheme from './withTheme'
 
 export interface LinkAnswerProps {
   name?: string;
@@ -116,4 +117,4 @@ function LinkAnswer(props: LinkAnswerProps) {
   );
 }
 
-export default memo(LinkAnswer);
+export default withTheme(memo(LinkAnswer));

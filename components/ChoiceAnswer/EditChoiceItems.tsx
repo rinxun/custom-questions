@@ -11,6 +11,7 @@ import useTheme from '@mui/material/styles/useTheme';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { AnswerTypeEnum } from '../../enums';
+import withTheme from '../withTheme'
 
 export interface EditChoiceItemsProps {
   color?: string;
@@ -199,4 +200,4 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
   );
 }
 
-export default memo(EditChoiceItems);
+export default withTheme(memo(EditChoiceItems));

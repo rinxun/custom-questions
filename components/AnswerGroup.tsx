@@ -11,6 +11,7 @@ import {
 import TextAnswer, { TextAnswerProps } from './TextAnswer';
 import LinkAnswer, { LinkAnswerProps } from './LinkAnswer';
 import UploaderAnswer, { UploaderAnswerProps } from './UploaderAnswer';
+import withTheme from './withTheme';
 
 interface AnswerGroupProps {
   question: string;
@@ -49,7 +50,7 @@ function AnswerGroup(props: AnswerGroupProps) {
 
   return (
     <>
-      <Typography variant="body2" align="left">
+      <Typography fontSize={16} fontWeight={600} align="left">
         {question}
       </Typography>
       {answerContent}
@@ -57,4 +58,4 @@ function AnswerGroup(props: AnswerGroupProps) {
   );
 }
 
-export default memo(AnswerGroup);
+export default withTheme(memo(AnswerGroup));

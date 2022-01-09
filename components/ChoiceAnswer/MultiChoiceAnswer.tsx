@@ -1,9 +1,11 @@
 import { memo, useMemo } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
+import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { ViewTypeEnum } from '../../enums';
+import withTheme from '../withTheme';
 
 export interface MultiChoiceAnswerProps {
   name?: string;
@@ -44,7 +46,11 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
                 <></>
               )
             }
-            label={opt.label}
+            label={
+              <Typography fontSize={16} align="left">
+                {opt.label}
+              </Typography>
+            }
           />
         ))}
       </FormGroup>
@@ -52,4 +58,4 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
   );
 }
 
-export default memo(MultiChoiseAnswer);
+export default withTheme(memo(MultiChoiseAnswer));
