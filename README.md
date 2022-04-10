@@ -346,7 +346,6 @@ import { SingleChoiseAnswer } from '@rinxun/custom-questions';
 | name     | string                                    |         | false    | The name of the `RadioGroup` element.                        |
 | options  | Array\<{ label: string; value: string }\> |         | true     | The radio options for rendering.                             |
 | onChange | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the selected `Radio` element. |
-| required | bool                                      | false   | false    | If `true`, the `RadioGroup` is required.                     |
 | value    | string                                    |         | true     | The selected value of the `RadioGroup` element.              |
 | viewType | ViewTypeEnum                              |         | true     | If `preview `or `edit` you can preview the `RadioGroup` component;<br />If `answer` you can do single select. |
 
@@ -370,7 +369,6 @@ import { MultiChoiseAnswer } from '@rinxun/custom-questions';
 | name     | string                                    |         | false    | The name of the `Form` element.                              |
 | onChange | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string, checked: boolean) => void`<br/>*value:* The value of the checked `checkbox` element.<br />*checked:* if `true` that means the checkbox is checked, otherwise, unchecked. |
 | options  | Array\<{ label: string; value: string }\> |         | true     | The checkbox options for rendering.                          |
-| required | bool                                      | false   | false    | If `true`, the `checkbox` is required.                       |
 | value    | Array\<string\>                           |         | true     | The values of all checked`checkbox` elements.                |
 | viewType | ViewTypeEnum                              |         | true     | If `preview `or `edit` you can preview the `checkbox` component;<br />If `answer` you can do multiple select. |
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC, ComponentClass, ElementType } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -19,8 +19,14 @@ const theme = createTheme({
   }
 });
 
-const withTheme = (Component: React.ElementType) => {
-  const CustomComponent = (props: any) => (
+type ComponentProps<TComponent> = TComponent extends FC<infer Props>
+  ? Props
+  : TComponent extends ComponentClass<infer Props>
+  ? Props
+  : never;
+
+const withTheme = (Component: ElementType) => {
+  const CustomComponent = (props: ComponentProps<typeof Component>) => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Component {...props} />
