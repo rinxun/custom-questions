@@ -10,6 +10,7 @@ import withTheme from '../withTheme';
 export interface MultiChoiceAnswerProps {
   name?: string;
   color?: string;
+  required?: boolean;
   viewType: ViewTypeEnum;
   options: Array<{ label: string; value: string }>;
   value: Array<string>;
@@ -17,12 +18,12 @@ export interface MultiChoiceAnswerProps {
 }
 
 function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
-  const { options, color, value, name, viewType, onChange } = props;
+  const { options, color, value, name, viewType, required, onChange } = props;
 
   const disabled = useMemo(() => viewType !== ViewTypeEnum.answer, [viewType]);
 
   return (
-    <FormControl component="fieldset" name={name}>
+    <FormControl component="fieldset" name={name} required={required}>
       <FormGroup>
         {options.map((opt) => (
           <FormControlLabel

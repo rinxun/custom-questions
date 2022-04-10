@@ -13,16 +13,17 @@ export interface SingleChoiceAnswerProps {
   viewType: ViewTypeEnum;
   options: Array<{ label: string; value: string }>;
   value: string;
+  required?: boolean;
   onChange: (value: string) => void;
 }
 
 function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
-  const { options, color, value, name, viewType, onChange } = props;
+  const { options, color, value, name, viewType, required, onChange } = props;
 
   const disabled = useMemo(() => viewType !== ViewTypeEnum.answer, [viewType]);
 
   return (
-    <FormControl component="fieldset">
+    <FormControl component="fieldset" required={required}>
       <RadioGroup
         name={name}
         onChange={(event) => {
