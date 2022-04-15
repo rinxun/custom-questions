@@ -245,9 +245,11 @@ import { TextAnswer } from '@rinxun/custom-questions';
 | disabled    | bool                            | false                      | false    | If `true`, the component is disabled.                        |
 | label       | string                          |                            | false    | The label of the `Input` element.                            |
 | maxLength   | number                          |                            | false    | Maximum number of length to type.                            |
-| minLength   | number                          |                            | false    | Minimum number of length to type.                            |
 | name        | string                          |                            | false    | The name of the `Input` element.                             |
+| minLength   | number                          |                            | false    | Minimum number of length to type.                            |
+| onBlur      | func                            |                            | true     | Callback fired when the `Input` value is blurred.            |
 | onChange    | func                            |                            | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
+| onFocus     | func                            |                            | true     | Callback fired when the `Input` value is focused.            |
 | placeholder | string                          | 'Type your answer here...' | false    | The placeholder of the `Input` element.                      |
 | required    | bool                            | false                      | false    | If `true`, the `Input` is required.                          |
 | value       | string                          |                            | true     | The value of the `Input` element, required for a controlled component. |

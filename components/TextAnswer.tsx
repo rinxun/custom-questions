@@ -15,6 +15,8 @@ export interface TextAnswerProps {
   viewType: ViewTypeEnum;
   answerType: AnswerTypeEnum;
   onChange: (value: string) => void;
+  onBlur?: () => void;
+  onFocus?: () => void;
   placeholder?: string;
 }
 
@@ -31,6 +33,8 @@ function TextAnswer(props: TextAnswerProps) {
     viewType,
     answerType,
     onChange,
+    onBlur,
+    onFocus,
     placeholder
   } = props;
 
@@ -53,6 +57,8 @@ function TextAnswer(props: TextAnswerProps) {
         event.preventDefault();
         onChange(event.target.value);
       }}
+      onBlur={onBlur}
+      onFocus={onFocus}
       inputProps={{ maxLength, minLength }}
       InputProps={{
         sx: {
