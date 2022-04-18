@@ -1,6 +1,7 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AnswerTypeEnum, ViewTypeEnum, LinkTypeEnum } from '../enums';
 import Scoring, { ScoringProps } from './Scoring';
 import { EditChoiceItems, EditChoiceItemsProps } from './ChoiceAnswer';
@@ -8,11 +9,11 @@ import TextAnswer from './TextAnswer';
 import LinkAnswer from './LinkAnswer';
 import UploaderAnswer from './UploaderAnswer';
 import AnswerTypeSelector, { AnswerTypeSelectorProps } from './AnswerTypeSelector';
-import withTheme from './withTheme';
+import useCustomTheme from '../useCustomTheme';
 
 interface QuestionGroupProps {
   question: string;
-  color?: string;
+  color?: CSSProperties['color'];
   questionLabel?: string;
   inputLabel?: string;
   answerType: AnswerTypeSelectorProps;
@@ -34,6 +35,8 @@ function QuestionGroup(props: QuestionGroupProps) {
     onChangeQuestion,
     showScoring
   } = props;
+
+  const theme = useCustomTheme({ primaryColor: color });
 
   const answerContent = useMemo(() => {
     const { value: type } = answerType;
@@ -83,7 +86,7 @@ function QuestionGroup(props: QuestionGroupProps) {
   }, [answerType, choices]);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <TextField
         size="small"
         margin="dense"
@@ -96,18 +99,6 @@ function QuestionGroup(props: QuestionGroupProps) {
         onChange={(event) => {
           event.preventDefault();
           onChangeQuestion(event.target.value);
-        }}
-        InputProps={{
-          sx: color
-            ? {
-                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: color
-                }
-              }
-            : undefined
-        }}
-        InputLabelProps={{
-          sx: color ? { '&.Mui-focused': { color } } : undefined
         }}
       />
       <Grid
@@ -126,8 +117,8 @@ function QuestionGroup(props: QuestionGroupProps) {
       {answerType.value !== AnswerTypeEnum.upload && showScoring && scoring && (
         <Scoring {...scoring} />
       )}
-    </>
+    </ThemeProvider>
   );
 }
 
-export default withTheme(memo(QuestionGroup));
+export default memo(QuestionGroup);

@@ -1,5 +1,4 @@
-import { memo, useMemo } from 'react';
-import colorAlpha from 'color-alpha';
+import { memo, useMemo, CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
@@ -7,14 +6,14 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
-import useTheme from '@mui/material/styles/useTheme';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { AnswerTypeEnum } from '../../enums';
-import withTheme from '../withTheme'
+import useCustomTheme from '../../useCustomTheme';
 
 export interface EditChoiceItemsProps {
-  color?: string;
+  color?: CSSProperties['color'];
   options: Array<{ value: string; name: string; label?: string; correctAnswer?: boolean }>;
   onChange: (name: string, value: string) => void;
   onAddMore: () => void;
@@ -42,7 +41,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
     maxItemsTipText
   } = props;
 
-  const theme = useTheme();
+  const theme = useCustomTheme({ primaryColor: color });
 
   const canAddMore = useMemo(
     () => !maxItems || options.length < maxItems,
@@ -82,7 +81,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
     }
   }
   return (
-    <>
+    <ThemeProvider theme={theme}>
       {options.map((opt, index) => {
         const { label, value, name, correctAnswer } = opt;
         return (
@@ -107,15 +106,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
                   event.preventDefault();
                   onChange(name, event.target.value);
                 }}
-                InputLabelProps={{
-                  sx: { '&.Mui-focused': { color } }
-                }}
                 InputProps={{
-                  sx: {
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: color
-                    }
-                  },
                   endAdornment:
                     options.length > 2 ? (
                       <InputAdornment position="end">
@@ -180,15 +171,6 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
             variant="outlined"
             color="primary"
             onClick={onAddMore}
-            sx={{
-              '&.MuiButtonBase-root': {
-                borderColor: canAddMore ? color : undefined,
-                color: canAddMore ? color : undefined,
-                '&:hover': {
-                  backgroundColor: color && canAddMore ? colorAlpha(color, 0.05) : undefined
-                }
-              }
-            }}
           >
             <Typography component="span" fontSize={14}>
               Add a New Choice
@@ -196,8 +178,8 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </ThemeProvider>
   );
 }
 
-export default withTheme(memo(EditChoiceItems));
+export default memo(EditChoiceItems);

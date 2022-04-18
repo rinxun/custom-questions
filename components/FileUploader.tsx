@@ -1,17 +1,18 @@
-import { memo } from 'react';
+import { memo, CSSProperties } from 'react';
 import { useDropzone, FileRejection } from 'react-dropzone';
-import useTheme from '@mui/material/styles/useTheme';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import CircularProgress from '@mui/material/CircularProgress';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import CircularProgress from '@mui/material/CircularProgress';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import useCustomTheme from '../useCustomTheme';
 
 interface FileUploadProps {
   maxWidth?: string;
   height?: string;
-  color?: string;
+  color?: CSSProperties['color'];
   index?: number;
   multiple?: boolean;
   accept?: string;
@@ -55,7 +56,7 @@ function FileUpload(props: FileUploadProps) {
     wrongFileTypeErrText || 'The type of the file you uploaded is not accepted, please reupload!';
   const ERROR_SIZE_MSG =
     sizeExceededErrText || `Your file exceed the max size of ${maxSize / 1024 / 1024}MB.`;
-  const theme = useTheme();
+  const theme = useCustomTheme({ primaryColor: color });
   const lessThanSm = useMediaQuery(theme.breakpoints.down('sm'));
 
   const onDrop = (acceptedFiles: Array<File>, rejectedFiles: Array<FileRejection>) => {
@@ -99,7 +100,7 @@ function FileUpload(props: FileUploadProps) {
   });
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       {lessThanSm ? (
         <div {...getRootProps()}>
           <input {...getInputProps()} />
@@ -166,7 +167,7 @@ function FileUpload(props: FileUploadProps) {
           )}
         </Grid>
       )}
-    </>
+    </ThemeProvider>
   );
 }
 

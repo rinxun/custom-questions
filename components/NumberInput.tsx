@@ -1,11 +1,13 @@
-import { useState, useEffect, ChangeEvent, memo } from 'react';
+import { useState, useEffect, ChangeEvent, memo, CSSProperties } from 'react';
 import Field, { TextFieldProps } from '@mui/material/TextField';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import useCustomTheme from '../useCustomTheme';
 
 type TextProps = Omit<Omit<TextFieldProps, 'onChange'>, 'color'>;
 
 interface NumberInputProps {
   name: string;
-  color?: string;
+  color?: CSSProperties['color'];
   onChange: (value: string) => void;
   handleFocus?: () => void;
   handleLeave?: () => void;
@@ -37,6 +39,9 @@ function NumberInput(props: NumberInputProps & TextProps) {
     verifyFunc,
     ...rest
   } = props;
+
+  const theme = useCustomTheme({ primaryColor: color });
+
   const [helperTextOpen, setHelperTextOpen] = useState(error || false);
 
   if (maxValue < minValue) throw new Error('NumberInput: Max should be bigger than min!');
@@ -98,37 +103,31 @@ function NumberInput(props: NumberInputProps & TextProps) {
   }, [error, maxValue, minValue, value, verifyFunc]);
 
   return (
-    <Field
-      size="small"
-      margin="dense"
-      type="number"
-      name={name}
-      label={label}
-      value={value === undefined || value === null ? '' : value}
-      InputProps={{
-        onFocus: () => {
-          handleFocus();
-        },
-        onBlur: () => {
-          handleBlur();
-          handleLeave();
-        },
-        sx: {
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: color
+    <ThemeProvider theme={theme}>
+      <Field
+        size="small"
+        margin="dense"
+        type="number"
+        name={name}
+        label={label}
+        value={value === undefined || value === null ? '' : value}
+        InputProps={{
+          onFocus: () => {
+            handleFocus();
+          },
+          onBlur: () => {
+            handleBlur();
+            handleLeave();
           }
-        }
-      }}
-      InputLabelProps={{
-        sx: { '&.Mui-focused': { color } }
-      }}
-      onChange={(event) => {
-        handleChange(event);
-      }}
-      error={error || helperTextOpen}
-      helperText={error || helperTextOpen ? errMsg : ''}
-      {...rest}
-    />
+        }}
+        onChange={(event) => {
+          handleChange(event);
+        }}
+        error={error || helperTextOpen}
+        helperText={error || helperTextOpen ? errMsg : ''}
+        {...rest}
+      />
+    </ThemeProvider>
   );
 }
 

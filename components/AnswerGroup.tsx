@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AnswerTypeEnum } from '../enums';
 import {
   SingleChoiceAnswer,
@@ -11,7 +11,7 @@ import {
 import TextAnswer, { TextAnswerProps } from './TextAnswer';
 import LinkAnswer, { LinkAnswerProps } from './LinkAnswer';
 import UploaderAnswer, { UploaderAnswerProps } from './UploaderAnswer';
-import withTheme from './withTheme';
+import useCustomTheme from '../useCustomTheme';
 
 interface AnswerGroupProps {
   question: string;
@@ -26,6 +26,8 @@ interface AnswerGroupProps {
 
 function AnswerGroup(props: AnswerGroupProps) {
   const { answerType, question, answer } = props;
+
+  const theme = useCustomTheme();
 
   const answerContent = useMemo(() => {
     switch (answerType) {
@@ -49,13 +51,13 @@ function AnswerGroup(props: AnswerGroupProps) {
   }, [answerType, answer]);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Typography fontSize={16} fontWeight={600} align="left">
         {question}
       </Typography>
       {answerContent}
-    </>
+    </ThemeProvider>
   );
 }
 
-export default withTheme(memo(AnswerGroup));
+export default memo(AnswerGroup);

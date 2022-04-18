@@ -1,11 +1,12 @@
-import { memo } from 'react';
+import { memo, CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ViewTypeEnum } from '../enums';
 import FileUploader from './FileUploader';
-import withTheme from './withTheme';
+import useCustomTheme from '../useCustomTheme';
 
 export interface FileProps {
   id: string | number;
@@ -14,7 +15,7 @@ export interface FileProps {
 }
 
 export interface UploaderAnswerProps {
-  color?: string;
+  color?: CSSProperties['color'];
   files: Array<FileProps>;
   onUpload: (files: Array<File>, index?: number) => void;
   onRemove: (id: string | number) => void;
@@ -30,8 +31,10 @@ export interface UploaderAnswerProps {
 function UploaderAnswer(props: UploaderAnswerProps) {
   const { files, color, onUpload, onRemove, viewType, warmingTips, maxSize, ...rest } = props;
 
+  const theme = useCustomTheme({ primaryColor: color });
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Grid container direction="row" justifyContent="flex-start" alignItems="center">
         <Grid item xs={12}>
           <Typography component="p" variant="caption" color="gray" align="left">
@@ -92,8 +95,8 @@ function UploaderAnswer(props: UploaderAnswerProps) {
           </Grid>
         </>
       )}
-    </>
+    </ThemeProvider>
   );
 }
 
-export default withTheme(memo(UploaderAnswer));
+export default memo(UploaderAnswer);

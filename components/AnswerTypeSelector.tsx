@@ -1,15 +1,15 @@
-import { memo, useMemo } from 'react';
-import colorAlpha from 'color-alpha';
+import { memo, useMemo, CSSProperties } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AnswerTypeEnum } from '../enums';
-import withTheme from './withTheme';
+import useCustomTheme from '../useCustomTheme';
 
 export interface AnswerTypeSelectorProps {
   value: AnswerTypeEnum;
-  color?: string;
+  color?: CSSProperties['color'];
   label?: string;
   hiddenOptions?: Array<AnswerTypeEnum>;
   onChange: (value: AnswerTypeEnum) => void;
@@ -20,6 +20,8 @@ export interface AnswerTypeSelectorProps {
  */
 function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   const { value, color, onChange, label, hiddenOptions = [] } = props;
+
+  const theme = useCustomTheme({ primaryColor: color });
 
   const options = useMemo(
     () =>
@@ -35,43 +37,32 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   );
 
   return (
-    <FormControl fullWidth>
-      <InputLabel id="answer-type-select-label" sx={{ '&.Mui-focused': { color } }}>
-        {label || 'Select Answer Type'}
-      </InputLabel>
-      <Select
-        label={label || 'Select Answer Type'}
-        size="small"
-        margin="dense"
-        sx={{
-          textAlign: 'left',
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: color }
-        }}
-        name="answerType"
-        labelId="answer-type-select-label"
-        id="answer-type-select"
-        value={value}
-        onChange={(event) => {
-          event.preventDefault();
-          onChange(event.target.value as AnswerTypeEnum);
-        }}
-      >
-        {options.map((opt) => (
-          <MenuItem
-            key={opt.value}
-            value={opt.value}
-            sx={{
-              '&.MuiMenuItem-root.Mui-selected': {
-                backgroundColor: color ? colorAlpha(color, 0.08) : undefined
-              }
-            }}
-          >
-            {opt.label}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+    <ThemeProvider theme={theme}>
+      <FormControl fullWidth>
+        <InputLabel id="answer-type-select-label">{label || 'Select Answer Type'}</InputLabel>
+        <Select
+          label={label || 'Select Answer Type'}
+          size="small"
+          margin="dense"
+          sx={{ textAlign: 'left' }}
+          name="answerType"
+          labelId="answer-type-select-label"
+          id="answer-type-select"
+          value={value}
+          onChange={(event) => {
+            event.preventDefault();
+            onChange(event.target.value as AnswerTypeEnum);
+          }}
+        >
+          {options.map((opt) => (
+            <MenuItem key={opt.value} value={opt.value}>
+              {opt.label}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </ThemeProvider>
   );
 }
 
-export default withTheme(memo(AnswerTypeSelector));
+export default memo(AnswerTypeSelector);
