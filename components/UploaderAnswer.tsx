@@ -44,17 +44,15 @@ function UploaderAnswer(props: UploaderAnswerProps) {
               } MB.`}
           </Typography>
         </Grid>
-        {viewType !== ViewTypeEnum.edit && (
-          <Grid item xs={12} md={10} lg={8}>
-            <FileUploader
-              color={color}
-              onUpload={onUpload}
-              disabled={viewType !== ViewTypeEnum.answer}
-              maxSize={maxSize}
-              {...rest}
-            />
-          </Grid>
-        )}
+        <Grid item xs={12} md={10} lg={8}>
+          <FileUploader
+            color={color}
+            onUpload={onUpload}
+            disabled={viewType !== ViewTypeEnum.answer}
+            maxSize={maxSize}
+            {...rest}
+          />
+        </Grid>
       </Grid>
       {viewType === ViewTypeEnum.answer && files && files.length > 0 && (
         <>
