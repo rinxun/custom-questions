@@ -17,6 +17,7 @@ export interface FileProps {
 export interface UploaderAnswerProps {
   color?: CSSProperties['color'];
   files: Array<FileProps>;
+  multiple?: boolean;
   onUpload: (files: Array<File>, index?: number) => void;
   onRemove: (id: string | number) => void;
   viewType: ViewTypeEnum;
