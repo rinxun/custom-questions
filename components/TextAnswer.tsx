@@ -11,6 +11,7 @@ export interface TextAnswerProps {
   color?: CSSProperties['color'];
   maxLength?: number;
   minLength?: number;
+  required?: boolean;
   viewType: ViewTypeEnum;
   answerType: AnswerTypeEnum;
   onChange: (value: string) => void;
