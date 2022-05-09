@@ -16,6 +16,7 @@ import useCustomTheme from '../useCustomTheme';
 interface AnswerGroupProps {
   question: string;
   answerType: AnswerTypeEnum;
+  required?: boolean;
   answer:
     | LinkAnswerProps
     | TextAnswerProps
@@ -25,7 +26,7 @@ interface AnswerGroupProps {
 }
 
 function AnswerGroup(props: AnswerGroupProps) {
-  const { answerType, question, answer } = props;
+  const { answerType, question, required, answer } = props;
 
   const theme = useCustomTheme();
 
@@ -54,6 +55,11 @@ function AnswerGroup(props: AnswerGroupProps) {
     <ThemeProvider theme={theme}>
       <Typography fontSize={16} fontWeight={600} align="left">
         {question}
+        {required && (
+          <Typography component="span" sx={{ color: 'red' }}>
+            *
+          </Typography>
+        )}
       </Typography>
       {answerContent}
     </ThemeProvider>

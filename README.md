@@ -415,11 +415,12 @@ import { AnswerGroup } from '@rinxun/custom-questions';
 
 <h5>Props</h5>
 
-| Name       | Type                                                         | Default | Required | Description                                                |
-| ---------- | ------------------------------------------------------------ | ------- | -------- | ---------------------------------------------------------- |
-| answer     | LinkAnswerProps \| TextAnswerProps \| UploaderAnswerProps \| SingleChoiceAnswerProps \| MultiChoiceAnswerProps |         | true     | See the corresponding props above.                         |
-| answerType | AnswerTypeEnum                                               |         | true     | Which kind of component you want to render for the answer. |
-| question   | string                                                       |         | true     | The text to describe the question.                         |
+| Name       | Type                                                         | Default | Required | Description                                                  |
+| ---------- | ------------------------------------------------------------ | ------- | -------- | ------------------------------------------------------------ |
+| answer     | LinkAnswerProps \| TextAnswerProps \| UploaderAnswerProps \| SingleChoiceAnswerProps \| MultiChoiceAnswerProps |         | true     | See the corresponding props above.                           |
+| answerType | AnswerTypeEnum                                               |         | true     | Which kind of component you want to render for the answer.   |
+| question   | string                                                       |         | true     | The text to describe the question.                           |
+| required   | boolean                                                      | false   | false    | If `true` the red asterisk would be shown next to the question. |
 
 
 
