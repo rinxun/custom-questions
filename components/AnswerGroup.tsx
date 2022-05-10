@@ -55,7 +55,7 @@ function AnswerGroup(props: AnswerGroupProps) {
     <ThemeProvider theme={theme}>
       <Typography fontSize={16} fontWeight={600} align="left">
         {question}
-        {required && (
+        {!!question && required && (
           <Typography component="span" sx={{ color: 'red' }}>
             *
           </Typography>
