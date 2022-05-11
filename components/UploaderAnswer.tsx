@@ -1,4 +1,4 @@
-import { memo, CSSProperties } from 'react';
+import { memo, CSSProperties, useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -30,9 +30,20 @@ export interface UploaderAnswerProps {
 }
 
 function UploaderAnswer(props: UploaderAnswerProps) {
-  const { files, color, onUpload, onRemove, viewType, warmingTips, maxSize, ...rest } = props;
+  const { files, color, onUpload, onRemove, multiple, viewType, warmingTips, maxSize, ...rest } =
+    props;
 
   const theme = useCustomTheme({ primaryColor: color });
+
+  const uploaderDisabled = useMemo(() => {
+    if (viewType !== ViewTypeEnum.answer) {
+      return true;
+    } else if (!multiple && files.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [multiple, viewType, files]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,8 +59,9 @@ function UploaderAnswer(props: UploaderAnswerProps) {
         <Grid item xs={12} md={10} lg={8}>
           <FileUploader
             color={color}
+            multiple={multiple}
             onUpload={onUpload}
-            disabled={viewType !== ViewTypeEnum.answer}
+            disabled={uploaderDisabled}
             maxSize={maxSize}
             {...rest}
           />
