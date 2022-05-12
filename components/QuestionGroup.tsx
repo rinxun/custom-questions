@@ -77,6 +77,7 @@ function QuestionGroup(props: QuestionGroupProps) {
             files={[]}
             onUpload={() => {}}
             onRemove={() => {}}
+            onDownload={() => {}}
             viewType={ViewTypeEnum.edit}
           />
         );
