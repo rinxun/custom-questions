@@ -1,6 +1,6 @@
 {
   "name": "@rinxun/custom-questions",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "It can help you to build some React custom question components for editing and answering",
   "keywords": [
     "react",
