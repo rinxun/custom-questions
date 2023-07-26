@@ -17,7 +17,7 @@
     "skipLibCheck": true,
     "noImplicitAny": true,
     "removeComments": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "strictNullChecks": true,
     "listEmittedFiles": true,
