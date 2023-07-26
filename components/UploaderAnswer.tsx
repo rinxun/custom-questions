@@ -1,4 +1,4 @@
-import { memo, CSSProperties, useMemo } from 'react';
+import { CSSProperties, useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -137,4 +137,4 @@ function UploaderAnswer(props: UploaderAnswerProps) {
   );
 }
 
-export default memo(UploaderAnswer);
+export default UploaderAnswer;

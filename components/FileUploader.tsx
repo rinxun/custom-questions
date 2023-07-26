@@ -1,4 +1,4 @@
-import { memo, CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { useDropzone, FileRejection } from 'react-dropzone';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
@@ -171,4 +171,4 @@ function FileUpload(props: FileUploadProps) {
   );
 }
 
-export default memo(FileUpload);
+export default FileUpload;
