@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AnswerTypeEnum } from '../enums';
@@ -66,4 +66,4 @@ function AnswerGroup(props: AnswerGroupProps) {
   );
 }
 
-export default memo(AnswerGroup);
+export default AnswerGroup;

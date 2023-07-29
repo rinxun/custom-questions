@@ -1,4 +1,4 @@
-import { memo, useMemo, CSSProperties } from 'react';
+import { useMemo, CSSProperties } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
@@ -65,4 +65,4 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
   );
 }
 
-export default memo(AnswerTypeSelector);
+export default AnswerTypeSelector;

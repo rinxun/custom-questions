@@ -1,4 +1,4 @@
-import { memo, useMemo, CSSProperties } from 'react';
+import { useMemo, CSSProperties } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
@@ -105,4 +105,4 @@ function LinkAnswer(props: LinkAnswerProps) {
   );
 }
 
-export default memo(LinkAnswer);
+export default LinkAnswer;

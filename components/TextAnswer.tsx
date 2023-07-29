@@ -1,4 +1,4 @@
-import { memo, CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AnswerTypeEnum, ViewTypeEnum } from '../enums';
@@ -67,4 +67,4 @@ function TextAnswer(props: TextAnswerProps & TextProps) {
   );
 }
 
-export default memo(TextAnswer);
+export default TextAnswer;
