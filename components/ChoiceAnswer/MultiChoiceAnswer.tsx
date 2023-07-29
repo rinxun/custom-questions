@@ -1,4 +1,4 @@
-import { memo, useMemo, CSSProperties } from 'react';
+import { useMemo, CSSProperties } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
@@ -61,4 +61,4 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
   );
 }
 
-export default memo(MultiChoiseAnswer);
+export default MultiChoiseAnswer;

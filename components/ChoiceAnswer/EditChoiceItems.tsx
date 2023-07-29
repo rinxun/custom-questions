@@ -1,4 +1,4 @@
-import { memo, useMemo, CSSProperties } from 'react';
+import { useMemo, CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
@@ -182,4 +182,4 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
   );
 }
 
-export default memo(EditChoiceItems);
+export default EditChoiceItems;

@@ -1,4 +1,4 @@
-import { memo, useMemo, CSSProperties } from 'react';
+import { useMemo, CSSProperties } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import Typography from '@mui/material/Typography';
@@ -55,4 +55,4 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
   );
 }
 
-export default memo(SingleChoiseAnswer);
+export default SingleChoiseAnswer;

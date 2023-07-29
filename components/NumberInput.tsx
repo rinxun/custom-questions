@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent, memo, CSSProperties } from 'react';
+import { useState, useEffect, ChangeEvent, CSSProperties } from 'react';
 import Field, { TextFieldProps } from '@mui/material/TextField';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import useCustomTheme from '../useCustomTheme';
@@ -54,7 +54,7 @@ function NumberInput(props: NumberInputProps & TextProps) {
     event.preventDefault();
     const val = event.currentTarget.value;
     // When the min value is greater than or equal to 0, negative integers are not allowed
-    if (val !== '' && minValue >= 0 && val.includes('-')) return;
+    if (val !== '' && Number(minValue) >= 0 && val.includes('-')) return;
     if (integerOnly) {
       // Verify that it is integer
       if (val !== '' && val !== '-' && !/^\d+$/g.test(val)) return;
@@ -131,4 +131,4 @@ function NumberInput(props: NumberInputProps & TextProps) {
   );
 }
 
-export default memo(NumberInput);
+export default NumberInput;

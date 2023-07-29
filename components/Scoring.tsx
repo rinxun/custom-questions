@@ -1,4 +1,4 @@
-import { memo, CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -103,4 +103,4 @@ function Scoring(props: ScoringProps) {
   );
 }
 
-export default memo(Scoring);
+export default Scoring;

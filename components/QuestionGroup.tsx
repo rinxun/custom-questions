@@ -1,4 +1,4 @@
-import { memo, useMemo, CSSProperties } from 'react';
+import { useMemo, CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
@@ -122,4 +122,4 @@ function QuestionGroup(props: QuestionGroupProps) {
   );
 }
 
-export default memo(QuestionGroup);
+export default QuestionGroup;
