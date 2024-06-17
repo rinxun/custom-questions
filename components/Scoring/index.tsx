@@ -1,25 +1,11 @@
-import type { CSSProperties } from 'react';
 import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import NumberInput from './NumberInput';
-import useCustomTheme from '../useCustomTheme';
-
-export interface ScoringProps {
-  color?: CSSProperties['color'];
-  totalScore: number | string;
-  passScore: number | string;
-  turnOffScoring: boolean;
-  onChangeTotalScore: (value: string) => void;
-  onChangePassScore: (value: string) => void;
-  onToggleScoring: (value: boolean) => void;
-  turnOffScoringLabel?: string;
-  passScoreLabel?: string;
-  totalScoreLabel?: string;
-  exceededErrText?: string;
-}
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { ScoringProps } from './types';
 
 /**
  * Component For custom question scoring
@@ -104,3 +90,4 @@ function Scoring(props: ScoringProps) {
 }
 
 export default Scoring;
+export type { ScoringProps } from './types';

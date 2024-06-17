@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "outDir": "./",
+    "target": "ES2015",
+    "module": "ESNext",
+    "outDir": ".",
     "jsx": "react-jsx",
-    "module": "esnext",
     "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
@@ -27,6 +27,6 @@
     "forceConsistentCasingInFileNames": true,
     "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "hooks", "enums.ts", "index.tsx", "components"],
   "exclude": ["node_modules", "*.test.ts", "**/*.spec.ts", "*.js", "dist"]
 }

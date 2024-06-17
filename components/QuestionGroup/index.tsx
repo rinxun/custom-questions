@@ -1,27 +1,16 @@
-import { useMemo, CSSProperties } from 'react';
+import { useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import { AnswerTypeEnum, ViewTypeEnum, LinkTypeEnum } from '../enums';
-import Scoring, { ScoringProps } from './Scoring';
-import { EditChoiceItems, EditChoiceItemsProps } from './ChoiceAnswer';
-import TextAnswer from './TextAnswer';
-import LinkAnswer from './LinkAnswer';
-import UploaderAnswer from './UploaderAnswer';
-import AnswerTypeSelector, { AnswerTypeSelectorProps } from './AnswerTypeSelector';
-import useCustomTheme from '../useCustomTheme';
-
-interface QuestionGroupProps {
-  question: string;
-  color?: CSSProperties['color'];
-  questionLabel?: string;
-  inputLabel?: string;
-  answerType: AnswerTypeSelectorProps;
-  choices?: EditChoiceItemsProps;
-  showScoring?: boolean;
-  scoring?: ScoringProps;
-  onChangeQuestion: (value: string) => void;
-}
+import { AnswerTypeEnum, ViewTypeEnum, LinkTypeEnum } from '../../enums';
+import Scoring from '../Scoring';
+import TextAnswer from '../TextAnswer';
+import LinkAnswer from '../LinkAnswer';
+import UploaderAnswer from '../UploaderAnswer';
+import { EditChoiceItems, EditChoiceItemsProps } from '../ChoiceAnswer';
+import AnswerTypeSelector from '../AnswerTypeSelector';
+import useCustomTheme from '../../hooks/useCustomTheme';
+import { QuestionGroupProps } from './types';
 
 function QuestionGroup(props: QuestionGroupProps) {
   const {
@@ -123,3 +112,4 @@ function QuestionGroup(props: QuestionGroupProps) {
 }
 
 export default QuestionGroup;
+export * from './types';

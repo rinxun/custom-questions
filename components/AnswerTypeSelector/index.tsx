@@ -1,19 +1,12 @@
-import { useMemo, CSSProperties } from 'react';
+import { useMemo } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import { AnswerTypeEnum } from '../enums';
-import useCustomTheme from '../useCustomTheme';
-
-export interface AnswerTypeSelectorProps {
-  value: AnswerTypeEnum;
-  color?: CSSProperties['color'];
-  label?: string;
-  hiddenOptions?: Array<AnswerTypeEnum>;
-  onChange: (value: AnswerTypeEnum) => void;
-}
+import useCustomTheme from '../../hooks/useCustomTheme';
+import { AnswerTypeEnum } from '../../enums';
+import type { AnswerTypeSelectorProps } from './types';
 
 /**
  * Component For answer type
@@ -66,3 +59,4 @@ function AnswerTypeSelector(props: AnswerTypeSelectorProps) {
 }
 
 export default AnswerTypeSelector;
+export * from './types';
