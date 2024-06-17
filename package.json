@@ -1,6 +1,6 @@
 {
   "name": "@rinxun/custom-questions",
-  "version": "1.3.0-alpha.2",
+  "version": "1.3.0-alpha.3",
   "description": "It can help you to build some React custom question components for editing and answering",
   "keywords": [
     "react",
@@ -9,12 +9,12 @@
     "customize",
     "material-ui"
   ],
-  "main": "./dist/index.js",
+  "main": "./index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/**/*.d.ts"
+      "import": "./index.js",
+      "require": "./index.js",
+      "types": "./**/*.d.ts"
     }
   },
   "author": "Janden Ma",
