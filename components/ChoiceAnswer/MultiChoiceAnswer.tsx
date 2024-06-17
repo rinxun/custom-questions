@@ -1,4 +1,4 @@
-import { useMemo, CSSProperties } from 'react';
+import { useMemo } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
@@ -6,17 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { ViewTypeEnum } from '../../enums';
-import useCustomTheme from '../../useCustomTheme';
-
-export interface MultiChoiceAnswerProps {
-  name?: string;
-  color?: CSSProperties['color'];
-  required?: boolean;
-  viewType: ViewTypeEnum;
-  options: Array<{ label: string; value: string }>;
-  value: Array<string>;
-  onChange: (value: string, checked: boolean) => void;
-}
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { MultiChoiceAnswerProps } from './types';
 
 function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
   const { options, color, value, name, viewType, required, onChange } = props;

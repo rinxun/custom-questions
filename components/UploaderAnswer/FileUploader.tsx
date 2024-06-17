@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react';
 import { useDropzone, FileRejection } from 'react-dropzone';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
@@ -7,24 +6,8 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CircularProgress from '@mui/material/CircularProgress';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import useCustomTheme from '../useCustomTheme';
-
-interface FileUploadProps {
-  maxWidth?: string;
-  height?: string;
-  color?: CSSProperties['color'];
-  index?: number;
-  multiple?: boolean;
-  accept?: string;
-  onUpload: (files: Array<File>, index?: number) => void;
-  disabled?: boolean;
-  maxSize?: number;
-  loading?: boolean;
-  wrongFileTypeErrText?: string;
-  sizeExceededErrText?: string;
-  dropFileText?: string;
-  chooseFileText?: string;
-}
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { FileUploadProps } from './types';
 
 /**
  * Upload file component

@@ -1,26 +1,12 @@
-import { useMemo, CSSProperties } from 'react';
+import { useMemo } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import useCustomTheme from '../useCustomTheme';
-import { LinkTypeEnum, ViewTypeEnum } from '../enums';
-
-export interface LinkAnswerProps {
-  name?: string;
-  value: string;
-  label?: string;
-  color?: CSSProperties['color'];
-  required?: boolean;
-  maxLength?: number;
-  minLength?: number;
-  disabled?: boolean;
-  linkType: LinkTypeEnum;
-  viewType: ViewTypeEnum;
-  onChange: (value: string) => void;
-  onToggleLinkType: (value: LinkTypeEnum) => void;
-}
+import useCustomTheme from '../../hooks/useCustomTheme';
+import { LinkTypeEnum, ViewTypeEnum } from '../../enums';
+import type { LinkAnswerProps } from './types';
 
 function LinkAnswer(props: LinkAnswerProps) {
   const {
@@ -106,3 +92,4 @@ function LinkAnswer(props: LinkAnswerProps) {
 }
 
 export default LinkAnswer;
+export * from './types';

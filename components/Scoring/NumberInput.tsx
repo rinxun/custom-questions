@@ -1,25 +1,10 @@
-import { useState, useEffect, ChangeEvent, CSSProperties } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Field, { TextFieldProps } from '@mui/material/TextField';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import useCustomTheme from '../useCustomTheme';
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { NumberInputProps, NumberInputStates } from './types';
 
 type TextProps = Omit<Omit<TextFieldProps, 'onChange'>, 'color'>;
-
-interface NumberInputProps {
-  name: string;
-  color?: CSSProperties['color'];
-  onChange: (value: string) => void;
-  handleFocus?: () => void;
-  handleLeave?: () => void;
-  value: string | number;
-  section?: string | number;
-  maxValue?: string | number;
-  minValue?: string | number;
-  error?: boolean;
-  errMsg?: string;
-  integerOnly?: boolean;
-  verifyFunc?: (value: number, minValue?: number, maxValue?: number) => boolean;
-}
 
 function NumberInput(props: NumberInputProps & TextProps) {
   const {
@@ -30,10 +15,10 @@ function NumberInput(props: NumberInputProps & TextProps) {
     section,
     minValue = Number.MIN_SAFE_INTEGER,
     maxValue = Number.MAX_SAFE_INTEGER,
-    onChange,
     error = false,
     errMsg = 'Your value exceeds the exceptable input range',
     integerOnly = false,
+    onChange,
     handleFocus = () => {},
     handleLeave = () => {},
     verifyFunc,
@@ -46,11 +31,8 @@ function NumberInput(props: NumberInputProps & TextProps) {
 
   if (maxValue < minValue) throw new Error('NumberInput: Max should be bigger than min!');
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    err = false
-  ): void => {
-    let errorTemp = err;
+  const handleChange = useCallback<NumberInputStates['handleChange']>((event) => {
+    let errorTemp: boolean = false;
     event.preventDefault();
     const val = event.currentTarget.value;
     // When the min value is greater than or equal to 0, negative integers are not allowed
@@ -73,9 +55,9 @@ function NumberInput(props: NumberInputProps & TextProps) {
       errorTemp = true;
     }
     setHelperTextOpen(errorTemp);
-  };
+  }, []);
 
-  const handleBlur = () => {
+  const handleBlur = useCallback<NumberInputStates['handleBlur']>(() => {
     const excludedValue = [null, undefined, '.', '', '-', '-.', 'null', 'undefined'];
     const strVal = String(value).trim();
     if (strVal !== null && strVal.lastIndexOf('.') === strVal.length - 1) {
@@ -85,7 +67,7 @@ function NumberInput(props: NumberInputProps & TextProps) {
     } else if (excludedValue.includes(strVal)) {
       onChange('');
     }
-  };
+  }, []);
 
   // for verification if maxValue/minValue changed
   useEffect(() => {
