@@ -1,29 +1,18 @@
 import { useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import { AnswerTypeEnum } from '../enums';
+import { AnswerTypeEnum } from '../../enums';
 import {
   SingleChoiceAnswer,
   SingleChoiceAnswerProps,
   MultiChoiceAnswer,
   MultiChoiceAnswerProps
-} from './ChoiceAnswer';
-import TextAnswer, { TextAnswerProps } from './TextAnswer';
-import LinkAnswer, { LinkAnswerProps } from './LinkAnswer';
-import UploaderAnswer, { UploaderAnswerProps } from './UploaderAnswer';
-import useCustomTheme from '../useCustomTheme';
-
-interface AnswerGroupProps {
-  question: string;
-  answerType: AnswerTypeEnum;
-  required?: boolean;
-  answer:
-    | LinkAnswerProps
-    | TextAnswerProps
-    | UploaderAnswerProps
-    | SingleChoiceAnswerProps
-    | MultiChoiceAnswerProps;
-}
+} from '../ChoiceAnswer';
+import TextAnswer, { TextAnswerProps } from '../TextAnswer';
+import LinkAnswer, { LinkAnswerProps } from '../LinkAnswer';
+import UploaderAnswer, { UploaderAnswerProps } from '../UploaderAnswer';
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { AnswerGroupProps } from './types';
 
 function AnswerGroup(props: AnswerGroupProps) {
   const { answerType, question, required, answer } = props;
@@ -67,3 +56,4 @@ function AnswerGroup(props: AnswerGroupProps) {
 }
 
 export default AnswerGroup;
+export * from './types';

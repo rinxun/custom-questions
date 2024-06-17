@@ -1,4 +1,4 @@
-import { useMemo, CSSProperties } from 'react';
+import { useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
@@ -10,21 +10,8 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { AnswerTypeEnum } from '../../enums';
-import useCustomTheme from '../../useCustomTheme';
-
-export interface EditChoiceItemsProps {
-  color?: CSSProperties['color'];
-  options: Array<{ value: string; name: string; label?: string; correctAnswer?: boolean }>;
-  onChange: (name: string, value: string) => void;
-  onAddMore: () => void;
-  onRemove: (name: string) => void;
-  onToggleCorrectAnswer?: (name: string) => void;
-  answerType: AnswerTypeEnum;
-  needDefineCorrectAnswer?: boolean;
-  correctAnswerIconTipText?: string;
-  maxItems?: number;
-  maxItemsTipText?: string;
-}
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { EditChoiceItemsProps } from './types';
 
 function EditChoiceItems(props: EditChoiceItemsProps) {
   const {

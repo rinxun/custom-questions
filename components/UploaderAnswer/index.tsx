@@ -1,35 +1,14 @@
-import { CSSProperties, useMemo } from 'react';
+import { useMemo } from 'react';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/FileDownload';
-import { ViewTypeEnum } from '../enums';
+import useCustomTheme from '../../hooks/useCustomTheme';
+import { ViewTypeEnum } from '../../enums';
 import FileUploader from './FileUploader';
-import useCustomTheme from '../useCustomTheme';
-
-export interface FileProps {
-  id: string;
-  fileName: string;
-  fileKey?: string;
-}
-
-export interface UploaderAnswerProps {
-  color?: CSSProperties['color'];
-  files: Array<FileProps>;
-  multiple?: boolean;
-  onUpload: (files: Array<File>, index?: number) => void;
-  onRemove: (id: string) => void;
-  onDownload: (id: string) => void;
-  viewType: ViewTypeEnum;
-  maxSize?: number;
-  warmingTips?: string;
-  wrongFileTypeErrText?: string;
-  sizeExceededErrText?: string;
-  dropFileText?: string;
-  chooseFileText?: string;
-}
+import { UploaderAnswerProps } from './types';
 
 function UploaderAnswer(props: UploaderAnswerProps) {
   const {
@@ -138,3 +117,4 @@ function UploaderAnswer(props: UploaderAnswerProps) {
 }
 
 export default UploaderAnswer;
+export type { FileProps, UploaderAnswerProps } from './types';

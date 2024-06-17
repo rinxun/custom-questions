@@ -12,4 +12,8 @@ yarn-debug.log*
 yarn-error.log*
 *.js
 *.d.ts
-dist
+/dist
+/components/**/*.js
+/components/**/*.d.js
+/hooks/**/*.js
+/hooks/**/*.d.js

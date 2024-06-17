@@ -1,23 +1,10 @@
-import type { CSSProperties } from 'react';
-import TextField, { TextFieldProps } from '@mui/material/TextField';
+import TextField from '@mui/material/TextField';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import { AnswerTypeEnum, ViewTypeEnum } from '../enums';
-import useCustomTheme from '../useCustomTheme';
+import { AnswerTypeEnum, ViewTypeEnum } from '../../enums';
+import useCustomTheme from '../../hooks/useCustomTheme';
+import type { TextAnswerProps } from './types';
 
-type TextProps = Omit<Omit<TextFieldProps, 'onChange'>, 'color'>;
-
-export interface TextAnswerProps {
-  value: string;
-  color?: CSSProperties['color'];
-  maxLength?: number;
-  minLength?: number;
-  required?: boolean;
-  viewType: ViewTypeEnum;
-  answerType: AnswerTypeEnum;
-  onChange: (value: string) => void;
-}
-
-function TextAnswer(props: TextAnswerProps & TextProps) {
+function TextAnswer(props: TextAnswerProps) {
   const {
     name,
     value,
@@ -68,3 +55,4 @@ function TextAnswer(props: TextAnswerProps & TextProps) {
 }
 
 export default TextAnswer;
+export * from './types';
