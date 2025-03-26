@@ -29,6 +29,7 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
         >
           {options.map((opt) => (
             <FormControlLabel
+              sx={{ alignItems: 'flex-start' }}
               disabled={disabled}
               key={opt.value}
               value={opt.value}

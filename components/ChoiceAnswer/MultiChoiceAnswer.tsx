@@ -22,6 +22,7 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
         <FormGroup>
           {options.map((opt) => (
             <FormControlLabel
+              sx={{ alignItems: 'flex-start' }}
               disabled={disabled}
               key={opt.value}
               value={opt.value}
