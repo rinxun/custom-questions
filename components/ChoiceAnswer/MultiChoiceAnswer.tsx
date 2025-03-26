@@ -9,7 +9,7 @@ import { ViewTypeEnum } from '../../enums';
 import useCustomTheme from '../../hooks/useCustomTheme';
 import type { MultiChoiceAnswerProps } from './types';
 
-function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
+function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
   const { options, color, value, name, viewType, required, onChange } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
@@ -35,13 +35,14 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
                       onChange(opt.value, event.target.checked);
                     }}
                     name={opt.label}
+                    sx={{ pt: '1px' }}
                   />
                 ) : (
                   <></>
                 )
               }
               label={
-                <Typography fontSize={16} align="left">
+                <Typography fontSize={16} align="left" pt={0.25}>
                   {opt.label}
                 </Typography>
               }
@@ -53,4 +54,4 @@ function MultiChoiseAnswer(props: MultiChoiceAnswerProps) {
   );
 }
 
-export default MultiChoiseAnswer;
+export default MultiChoiceAnswer;
