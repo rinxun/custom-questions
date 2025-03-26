@@ -25,7 +25,8 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
     correctAnswerIconTipText,
     answerType,
     maxItems,
-    maxItemsTipText
+    maxItemsTipText,
+    readonly
   } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
@@ -94,8 +95,9 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
                   onChange(name, event.target.value);
                 }}
                 InputProps={{
+                  readOnly: readonly,
                   endAdornment:
-                    options.length > 2 ? (
+                    options.length > 2 && !readonly ? (
                       <InputAdornment position="end">
                         <IconButton
                           color="error"
@@ -111,7 +113,7 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
                 }}
               />
             </Grid>
-            {needDefineCorrectAnswer && onToggleCorrectAnswer && (
+            {needDefineCorrectAnswer && !readonly && onToggleCorrectAnswer && (
               <Grid item xs={1}>
                 <Tooltip
                   title={correctAnswerIconTipText || 'Toggle it as correct / incorrect answer'}

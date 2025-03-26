@@ -21,8 +21,9 @@ function QuestionGroup(props: QuestionGroupProps) {
     choices,
     answerType,
     question,
-    onChangeQuestion,
-    showScoring
+    readonly,
+    showScoring,
+    onChangeQuestion
   } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
@@ -37,6 +38,7 @@ function QuestionGroup(props: QuestionGroupProps) {
             color={color}
             name=""
             value=""
+            readonly={readonly}
             label={inputLabel}
             onChange={() => {}}
             viewType={ViewTypeEnum.edit}
@@ -45,7 +47,7 @@ function QuestionGroup(props: QuestionGroupProps) {
         );
       case AnswerTypeEnum.singleChoice:
       case AnswerTypeEnum.multiChoice:
-        return <EditChoiceItems {...(choices as EditChoiceItemsProps)} />;
+        return <EditChoiceItems {...(choices as EditChoiceItemsProps)} readonly={readonly} />;
       case AnswerTypeEnum.link:
         return (
           <LinkAnswer
@@ -57,6 +59,7 @@ function QuestionGroup(props: QuestionGroupProps) {
             onToggleLinkType={() => {}}
             linkType={LinkTypeEnum.https}
             viewType={ViewTypeEnum.edit}
+            readonly={readonly}
           />
         );
       case AnswerTypeEnum.upload:
@@ -90,6 +93,7 @@ function QuestionGroup(props: QuestionGroupProps) {
           event.preventDefault();
           onChangeQuestion(event.target.value);
         }}
+        InputProps={{ readOnly: readonly }}
       />
       <Grid
         container

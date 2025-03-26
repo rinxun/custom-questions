@@ -12,6 +12,7 @@ export interface LinkAnswerProps {
   disabled?: boolean;
   linkType: LinkTypeEnum;
   viewType: ViewTypeEnum;
+  readonly?: boolean;
   onChange: (value: string) => void;
   onToggleLinkType: (value: LinkTypeEnum) => void;
 }

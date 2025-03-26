@@ -192,6 +192,7 @@ import { LinkAnswer } from '@rinxun/custom-questions';
 | name             | string                          |         | false    | The name of the `Input` element.                             |
 | onChange         | func                            |         | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
 | onToggleLinkType | func                            |         | true     | Callback fired when the `Select` value is changed.<br />**Signature:**<br/>`function(value: LinkTypeEnum) => void`<br/>*value:* The value of the `Select` element. |
+| readonly         | boolean                         | false   | false    | If `true`, the `Input` is read only.                         |
 | required         | bool                            | false   | false    | If `true`, the `Input` is required.                          |
 | value            | string                          |         | true     | The value of the `Input` element, required for a controlled component. |
 | viewType         | ViewTypeEnum                    |         | true     | If `preview `or `edit` you can preview the answer component;<br />If `answer` you can answer the question. |
@@ -251,6 +252,7 @@ import { TextAnswer } from '@rinxun/custom-questions';
 | onChange    | func                            |                            | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
 | onFocus     | func                            |                            | true     | Callback fired when the `Input` value is focused.            |
 | placeholder | string                          | 'Type your answer here...' | false    | The placeholder of the `Input` element.                      |
+| readonly    | boolean                         | false                      | false    | If `true`, the `Input` is read only.                         |
 | required    | bool                            | false                      | false    | If `true`, the `Input` is required.                          |
 | value       | string                          |                            | true     | The value of the `Input` element, required for a controlled component. |
 | viewType    | ViewTypeEnum                    |                            | true     | If `preview `or `edit` you can preview the answer component;<br />If `answer` you can answer the question. |
@@ -329,6 +331,7 @@ import { EditChoiceItems } from '@rinxun/custom-questions';
 | onRemove                 | func                            |                                           | true     | Callback fired when removed the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element. |
 | onToggleCorrectAnswer    | func                            |                                           | false    | Callback fired when toggle the tick icon button at the end of the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element.<br />Required when `needDefineCorrectAnswer` is true. |
 | options                  | Array\<ChoiceItemProps\>        |                                           | true     | See **Choice Item Props** above.<br />The length of options must be greater than 2. |
+| readonly                 | boolean                         | false                                     | false    | If `true`, the choice item is read only.                     |
 
 
 
@@ -399,6 +402,7 @@ import { QuestionGroup } from '@rinxun/custom-questions';
 | onChangeQuestion | func                            |                  | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the `Input` element. |
 | question         | string                          |                  | true     | The value of the Question `Input` element.                   |
 | questionLabel    | string                          | 'Enter Question' | false    | The label of the Question `Input` element.                   |
+| readonly         | boolean                         | false            | false    | If `true`, the `Input` is read only.                         |
 | scoring          | ScoringProps                    |                  | false    | See props of `Scoring`. Required if `showScoring` is `true`. |
 | showScoring      | boolean                         | false            | false    | If `true`, the `Scoring` will be rendered.                   |
 

@@ -19,6 +19,7 @@ function LinkAnswer(props: LinkAnswerProps) {
     maxLength,
     minLength,
     disabled = false,
+    readonly = false,
     linkType = LinkTypeEnum.http,
     onChange,
     onToggleLinkType
@@ -57,6 +58,7 @@ function LinkAnswer(props: LinkAnswerProps) {
         inputProps={{ maxLength, minLength }}
         InputLabelProps={{ shrink: viewType !== ViewTypeEnum.answer }}
         InputProps={{
+          readOnly: readonly,
           startAdornment: (
             <InputAdornment position="start">
               <Select
@@ -72,6 +74,7 @@ function LinkAnswer(props: LinkAnswerProps) {
                   '&.Mui-focused .MuiInputBase-root': { borderBottomColor: color },
                   '&.MuiInputBase-root:after': { borderBottomColor: color }
                 }}
+                readOnly={readonly}
                 onChange={(event) => {
                   event.preventDefault();
                   onToggleLinkType(event.target.value as LinkTypeEnum);
