@@ -12,5 +12,6 @@ export interface TextAnswerProps extends TextProps {
   required?: boolean;
   viewType: ViewTypeEnum;
   answerType: AnswerTypeEnum;
+  readonly?: boolean;
   onChange: (value: string) => void;
 }

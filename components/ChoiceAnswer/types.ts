@@ -9,6 +9,7 @@ export interface EditChoiceItemsProps {
   correctAnswerIconTipText?: string;
   maxItems?: number;
   maxItemsTipText?: string;
+  readonly?: boolean;
   onChange: (name: string, value: string) => void;
   onAddMore: () => void;
   onRemove: (name: string) => void;

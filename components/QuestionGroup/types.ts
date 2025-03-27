@@ -13,5 +13,6 @@ export interface QuestionGroupProps {
   choices?: EditChoiceItemsProps;
   showScoring?: boolean;
   scoring?: ScoringProps;
+  readonly?: boolean;
   onChangeQuestion: (value: string) => void;
 }

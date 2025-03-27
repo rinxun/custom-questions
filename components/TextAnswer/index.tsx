@@ -16,9 +16,12 @@ function TextAnswer(props: TextAnswerProps) {
     disabled,
     viewType,
     answerType,
+    readonly,
     onChange,
     placeholder,
     inputProps = {},
+    InputProps = {},
+    InputLabelProps = {},
     ...rest
   } = props;
 
@@ -46,8 +49,10 @@ function TextAnswer(props: TextAnswerProps) {
         }}
         inputProps={{ ...inputProps, maxLength, minLength }}
         InputLabelProps={{
+          ...InputLabelProps,
           shrink: viewType !== ViewTypeEnum.answer ? true : undefined
         }}
+        InputProps={{ ...InputProps, readOnly: readonly }}
         {...rest}
       />
     </ThemeProvider>
