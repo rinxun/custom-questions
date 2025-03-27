@@ -33,7 +33,9 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
               disabled={disabled}
               key={opt.value}
               value={opt.value}
-              control={opt.label && opt.value ? <Radio size="small" sx={{ py: 0 }} /> : <></>}
+              control={
+                opt.label && opt.value ? <Radio size="small" sx={{ pb: 0, pt: '1.5px' }} /> : <></>
+              }
               label={
                 <Typography fontSize={16} align="left">
                   {opt.label}
