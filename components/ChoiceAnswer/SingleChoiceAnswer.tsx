@@ -29,11 +29,11 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
         >
           {options.map((opt) => (
             <FormControlLabel
-              sx={{ alignItems: 'flex-start' }}
+              sx={{ alignItems: 'flex-start', mb: 1 }}
               disabled={disabled}
               key={opt.value}
               value={opt.value}
-              control={opt.label && opt.value ? <Radio size="small" sx={{ pt: '1px' }} /> : <></>}
+              control={opt.label && opt.value ? <Radio size="small" sx={{ py: 0 }} /> : <></>}
               label={
                 <Typography fontSize={16} align="left">
                   {opt.label}
