@@ -35,7 +35,7 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
               value={opt.value}
               control={opt.label && opt.value ? <Radio size="small" sx={{ pt: '1px' }} /> : <></>}
               label={
-                <Typography fontSize={16} align="left" pt={0.25}>
+                <Typography fontSize={16} align="left">
                   {opt.label}
                 </Typography>
               }

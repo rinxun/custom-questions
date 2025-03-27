@@ -42,7 +42,7 @@ function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
                 )
               }
               label={
-                <Typography fontSize={16} align="left" pt={0.25}>
+                <Typography fontSize={16} align="left">
                   {opt.label}
                 </Typography>
               }
