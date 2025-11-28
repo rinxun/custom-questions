@@ -15,7 +15,7 @@ import useCustomTheme from '../../hooks/useCustomTheme';
 import type { AnswerGroupProps } from './types';
 
 function AnswerGroup(props: AnswerGroupProps) {
-  const { answerType, question, required, answer } = props;
+  const { answerType, question, required, answer, ...rest } = props;
 
   const theme = useCustomTheme();
 
@@ -42,7 +42,7 @@ function AnswerGroup(props: AnswerGroupProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Typography fontSize={16} fontWeight={600} align="left">
+      <Typography fontSize={16} fontWeight={600} align="left" {...rest}>
         {question}
         {!!question && required && (
           <Typography component="span" sx={{ color: 'red' }}>
