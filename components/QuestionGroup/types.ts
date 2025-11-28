@@ -1,9 +1,11 @@
+import type { TextFieldProps } from '@mui/material/TextField';
 import type { CSSProperties } from 'react';
 import type { ScoringProps } from '../Scoring';
 import type { EditChoiceItemsProps } from '../ChoiceAnswer';
 import type { AnswerTypeSelectorProps } from '../AnswerTypeSelector';
 
-export interface QuestionGroupProps {
+export interface QuestionGroupProps
+  extends Pick<TextFieldProps, 'sx' | 'multiline' | 'minRows' | 'maxRows'> {
   question: string;
   description?: string;
   color?: CSSProperties['color'];
