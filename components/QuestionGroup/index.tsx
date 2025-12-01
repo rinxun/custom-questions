@@ -23,7 +23,8 @@ function QuestionGroup(props: QuestionGroupProps) {
     question,
     readonly,
     showScoring,
-    onChangeQuestion
+    onChangeQuestion,
+    ...rest
   } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
@@ -94,6 +95,7 @@ function QuestionGroup(props: QuestionGroupProps) {
           onChangeQuestion(event.target.value);
         }}
         InputProps={{ readOnly: readonly }}
+        {...rest}
       />
       <Grid
         container
