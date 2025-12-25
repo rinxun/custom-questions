@@ -10,7 +10,7 @@ import useCustomTheme from '../../hooks/useCustomTheme';
 import type { MultiChoiceAnswerProps } from './types';
 
 function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
-  const { options, color, value, name, viewType, required, onChange } = props;
+  const { options, color, value, error, name, viewType, required, onChange } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
 
@@ -18,7 +18,7 @@ function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <FormControl component="fieldset" name={name} required={required}>
+      <FormControl component="fieldset" name={name} required={required} error={error}>
         <FormGroup>
           {options.map((opt) => (
             <FormControlLabel

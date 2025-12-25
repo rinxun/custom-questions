@@ -18,6 +18,7 @@ export interface EditChoiceItemsProps {
 
 interface ChoiceAnswerProps {
   name?: string;
+  error?: boolean;
   description?: string;
   required?: boolean;
   color?: CSSProperties['color'];

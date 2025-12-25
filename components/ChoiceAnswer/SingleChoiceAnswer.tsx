@@ -10,7 +10,7 @@ import useCustomTheme from '../../hooks/useCustomTheme';
 import type { SingleChoiceAnswerProps } from './types';
 
 function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
-  const { options, color, value, name, viewType, required, onChange } = props;
+  const { options, color, value, error, name, viewType, required, onChange } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
 
@@ -18,7 +18,7 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <FormControl component="fieldset" required={required}>
+      <FormControl component="fieldset" required={required} error={error}>
         <RadioGroup
           name={name}
           onChange={(event) => {
