@@ -45,7 +45,15 @@ function SingleChoiseAnswer(props: SingleChoiceAnswerProps) {
             />
           ))}
         </RadioGroup>
-        {helperText ? <FormHelperText>{helperText}</FormHelperText> : <></>}
+        {helperText ? (
+          <FormHelperText>
+            <Typography fontSize={14} align="left">
+              {helperText}
+            </Typography>
+          </FormHelperText>
+        ) : (
+          <></>
+        )}
       </FormControl>
     </ThemeProvider>
   );
