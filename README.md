@@ -347,14 +347,16 @@ import { SingleChoiseAnswer } from '@rinxun/custom-questions';
 
 <h5>Props</h5>
 
-| Name     | Type                                      | Default | Required | Description                                                  |
-| -------- | ----------------------------------------- | ------- | -------- | ------------------------------------------------------------ |
-| color    | string (keyword, rgb, hex, etc)           |         | false    | The main color of the component.                             |
-| name     | string                                    |         | false    | The name of the `RadioGroup` element.                        |
-| options  | Array\<{ label: string; value: string }\> |         | true     | The radio options for rendering.                             |
-| onChange | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the selected `Radio` element. |
-| value    | string                                    |         | true     | The selected value of the `RadioGroup` element.              |
-| viewType | ViewTypeEnum                              |         | true     | If `preview `or `edit` you can preview the `RadioGroup` component;<br />If `answer` you can do single select. |
+| Name       | Type                                      | Default | Required | Description                                                  |
+| ---------- | ----------------------------------------- | ------- | -------- | ------------------------------------------------------------ |
+| color      | string (keyword, rgb, hex, etc)           |         | false    | The main color of the component.                             |
+| error      | bool                                      |         | false    | If `true`, the label is displayed in an error state.         |
+| helperText | string                                    |         | false    | The helper text content. If `error = true`, it will show as red. |
+| name       | string                                    |         | false    | The name of the `RadioGroup` element.                        |
+| options    | Array\<{ label: string; value: string }\> |         | true     | The radio options for rendering.                             |
+| onChange   | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string) => void`<br/>*value:* The value of the selected `Radio` element. |
+| value      | string                                    |         | true     | The selected value of the `RadioGroup` element.              |
+| viewType   | ViewTypeEnum                              |         | true     | If `preview `or `edit` you can preview the `RadioGroup` component;<br />If `answer` you can do single select. |
 
 
 
@@ -370,14 +372,16 @@ import { MultiChoiseAnswer } from '@rinxun/custom-questions';
 
 <h5>Props</h5>
 
-| Name     | Type                                      | Default | Required | Description                                                  |
-| -------- | ----------------------------------------- | ------- | -------- | ------------------------------------------------------------ |
-| color    | string (keyword, rgb, hex, etc)           |         | false    | The main color of the component.                             |
-| name     | string                                    |         | false    | The name of the `Form` element.                              |
-| onChange | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string, checked: boolean) => void`<br/>*value:* The value of the checked `checkbox` element.<br />*checked:* if `true` that means the checkbox is checked, otherwise, unchecked. |
-| options  | Array\<{ label: string; value: string }\> |         | true     | The checkbox options for rendering.                          |
-| value    | Array\<string\>                           |         | true     | The values of all checked`checkbox` elements.                |
-| viewType | ViewTypeEnum                              |         | true     | If `preview `or `edit` you can preview the `checkbox` component;<br />If `answer` you can do multiple select. |
+| Name       | Type                                      | Default | Required | Description                                                  |
+| ---------- | ----------------------------------------- | ------- | -------- | ------------------------------------------------------------ |
+| color      | string (keyword, rgb, hex, etc)           |         | false    | The main color of the component.                             |
+| error      | bool                                      |         | false    | If `true`, the label is displayed in an error state.         |
+| helperText | string                                    |         | false    | The helper text content. If `error = true`, it will show as red. |
+| name       | string                                    |         | false    | The name of the `Form` element.                              |
+| onChange   | func                                      |         | true     | Callback fired when the `Radio` value is changed.<br />**Signature:**<br/>`function(value: string, checked: boolean) => void`<br/>*value:* The value of the checked `checkbox` element.<br />*checked:* if `true` that means the checkbox is checked, otherwise, unchecked. |
+| options    | Array\<{ label: string; value: string }\> |         | true     | The checkbox options for rendering.                          |
+| value      | Array\<string\>                           |         | true     | The values of all checked`checkbox` elements.                |
+| viewType   | ViewTypeEnum                              |         | true     | If `preview `or `edit` you can preview the `checkbox` component;<br />If `answer` you can do multiple select. |
 
 
 
