@@ -19,6 +19,7 @@ export interface EditChoiceItemsProps {
 interface ChoiceAnswerProps {
   name?: string;
   error?: boolean;
+  helperText?: string;
   description?: string;
   required?: boolean;
   color?: CSSProperties['color'];
