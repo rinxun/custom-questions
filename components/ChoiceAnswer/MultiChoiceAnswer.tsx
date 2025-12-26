@@ -3,6 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { ViewTypeEnum } from '../../enums';
@@ -10,7 +11,7 @@ import useCustomTheme from '../../hooks/useCustomTheme';
 import type { MultiChoiceAnswerProps } from './types';
 
 function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
-  const { options, color, value, name, viewType, required, onChange } = props;
+  const { name, color, value, error, options, viewType, required, helperText, onChange } = props;
 
   const theme = useCustomTheme({ primaryColor: color });
 
@@ -18,7 +19,7 @@ function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <FormControl component="fieldset" name={name} required={required}>
+      <FormControl component="fieldset" name={name} required={required} error={error}>
         <FormGroup>
           {options.map((opt) => (
             <FormControlLabel
@@ -49,6 +50,15 @@ function MultiChoiceAnswer(props: MultiChoiceAnswerProps) {
             />
           ))}
         </FormGroup>
+        {helperText ? (
+          <FormHelperText>
+            <Typography fontSize={14} align="left">
+              {helperText}
+            </Typography>
+          </FormHelperText>
+        ) : (
+          <></>
+        )}
       </FormControl>
     </ThemeProvider>
   );
