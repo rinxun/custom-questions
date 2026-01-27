@@ -323,14 +323,14 @@ import { EditChoiceItems } from '@rinxun/custom-questions';
 | answerType               | AnswerTypeEnum                  |                                           | true     | Which kind of component you want to render for the answer.   |
 | color                    | string (keyword, rgb, hex, etc) |                                           | false    | The main color of the component.                             |
 | correctAnswerIconTipText | string                          | 'Toggle it as correct / incorrect answer' | false    | The tooltip text of the tick icon button.                    |
-| maxItems                 | number                          |                                           | false    | Maximum number of items to add, it must be greater than 2.<br />If `null` then unlimited. |
+| maxItems                 | number                          |                                           | false    | Maximum number of items to add, it must be greater than 1.<br />If `null` then unlimited. |
 | maxItemsTipText          | string                          | 'A maximum of x choices can be set!'      | false    | A warming tip to tell users the maximum number of items to add. Only be displayed when `maxItems` is not `null`.<br />`x` is the `maxItem` value. |
 | needDefineCorrectAnswer  | bool                            |                                           | false    | If `true` that means you have to define correct answers.<br />At this moment, `onToggleCorrectAnswer` and `correctAnswer` are required. |
 | onAddMore                | func                            |                                           | true     | Callback fired when the Add More button is clicked.<br />**Signature:**<br/>`function() => void`<br/> |
 | onChange                 | func                            |                                           | true     | Callback fired when the `Input` value is changed.<br />**Signature:**<br/>`function(name: string, value: string) => void`<br/>*name:* The name of the `Input` element.<br />*value:* The value of the `Input` element. |
 | onRemove                 | func                            |                                           | true     | Callback fired when removed the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element. |
 | onToggleCorrectAnswer    | func                            |                                           | false    | Callback fired when toggle the tick icon button at the end of the choice item.<br />**Signature:**<br/>`function(name: string) => void`<br/>*name:* The name of the `Input` element.<br />Required when `needDefineCorrectAnswer` is true. |
-| options                  | Array\<ChoiceItemProps\>        |                                           | true     | See **Choice Item Props** above.<br />The length of options must be greater than 2. |
+| options                  | Array\<ChoiceItemProps\>        |                                           | true     | See **Choice Item Props** above.<br />The length of options must be greater than 1. |
 | readonly                 | boolean                         | false                                     | false    | If `true`, the choice item is read only.                     |
 
 

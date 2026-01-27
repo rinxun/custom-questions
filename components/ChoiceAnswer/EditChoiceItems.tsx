@@ -37,11 +37,11 @@ function EditChoiceItems(props: EditChoiceItemsProps) {
   );
 
   if (options.length < 2) {
-    console.error('EditChoiceItems: "options" should be an array with more than 2 items.');
+    console.error('EditChoiceItems: "options" should be an array with more than 1 items.');
     return <></>;
   }
-  if (maxItems && maxItems <= 2) {
-    console.error('EditChoiceItems: "maxItems" should be greater than 2.');
+  if (maxItems && maxItems <= 1) {
+    console.error('EditChoiceItems: "maxItems" should be greater than 1.');
     return <></>;
   }
   if (needDefineCorrectAnswer) {
